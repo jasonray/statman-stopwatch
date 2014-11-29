@@ -1,11 +1,8 @@
 var uuid = require('node-uuid');
 var now = require("performance-now")
 
-function Stopwatch(name, autostart) {
-    var self = this;
-    if (!name) name = uuid.v4();
-    self.name = name;
-    if (autostart) self.start();
+function Stopwatch( autostart) {
+    if (autostart) this.start();
 }
 
 Stopwatch.prototype.start = function() {

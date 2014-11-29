@@ -5,19 +5,12 @@ var Stopwatch = require('../Stopwatch');
 var defaultPrecision = 5;
 
 exports.initStopwatch = function(test) {
-    var stopwatch = new Stopwatch('mystopwatchA');
-    test.equal(stopwatch.name, 'mystopwatchA');
-    test.done();
-};
-
-exports.initStopwatchWithoutName = function(test) {
     var stopwatch = new Stopwatch();
-    test.ok(stopwatch.name !== undefined);
     test.done();
 };
 
 exports.startAndReadStopwatch1000 = function(test) {
-    var stopwatch = new Stopwatch('mystopwatchB');
+    var stopwatch = new Stopwatch();
     stopwatch.start();
     setTimeout(function() {
         var delta = stopwatch.read();
@@ -27,7 +20,7 @@ exports.startAndReadStopwatch1000 = function(test) {
 };
 
 exports.startAndReadStopwatch10 = function(test) {
-    var stopwatch = new Stopwatch('mystopwatchC');
+    var stopwatch = new Stopwatch();
     stopwatch.start();
     setTimeout(function() {
         var delta = stopwatch.read();
@@ -37,8 +30,8 @@ exports.startAndReadStopwatch10 = function(test) {
 };
 
 exports.autostart = function(test) {
-    var stopwatchA = new Stopwatch('autostartA', true);
-    var stopwatchB = new Stopwatch('notautostartB', false);
+    var stopwatchA = new Stopwatch(true);
+    var stopwatchB = new Stopwatch(false);
     setTimeout(function() {
         var deltaA = stopwatchA.read();
         verifyDelta(test, 1000, deltaA, defaultPrecision);
@@ -52,8 +45,8 @@ exports.autostart = function(test) {
 
 
 exports.twoStopWatches = function(test) {
-    var stopwatch1 = new Stopwatch('sw1');
-    var stopwatch2 = new Stopwatch('sw2');
+    var stopwatch1 = new Stopwatch();
+    var stopwatch2 = new Stopwatch();
 
     stopwatch1.start();
 
@@ -74,7 +67,7 @@ exports.twoStopWatches = function(test) {
 
 
 exports.utilizeStop = function(test) {
-    var stopwatch = new Stopwatch('mystopwatchB');
+    var stopwatch = new Stopwatch();
     stopwatch.start();
     setTimeout(function() {
         stopwatch.stop();
@@ -90,14 +83,14 @@ exports.utilizeStop = function(test) {
 };
 
 exports.stopWithoutStart = function(test) {
-    var stopwatch = new Stopwatch('a');
+    var stopwatch = new Stopwatch();
     stopwatch.stop();
     test.ok(isNaN(stopwatch.read()));
     test.done();
 };
 
 exports.utilizeStopTwice = function(test) {
-    var stopwatch = new Stopwatch('b');
+    var stopwatch = new Stopwatch();
     stopwatch.start();
     setTimeout(function() {
         stopwatch.stop();
