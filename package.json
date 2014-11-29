@@ -4,7 +4,7 @@
   "description": "Simple high res stopwatch for node.js",
   "main": "stopwatch.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/nodeunit/bin/nodeunit test/"
   },
   "repository": {
     "type": "git",
