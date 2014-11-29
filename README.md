@@ -45,5 +45,6 @@ Create a new stopwatch, `stop()` it, and later `read()` it
 
     // do some more activity
 
-    var delta = stopwatch.read();  //returns time associated with when stop() occurred
+	//returns time associated with when stop() occurred
+    var delta = stopwatch.read();
  ```
