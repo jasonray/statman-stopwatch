@@ -1,5 +1,5 @@
 var uuid = require('node-uuid');
-var now = require("performance-now")
+var now = require("performance-now");
 
 function Stopwatch( autostart) {
     if (autostart) this.start();
