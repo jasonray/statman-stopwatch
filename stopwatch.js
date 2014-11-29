@@ -41,6 +41,6 @@ Stopwatch.prototype.read = function() {
     function calculateDelta(start, end) {
         return end - start;
     }
-}
+};
 
 module.exports = Stopwatch;
