@@ -32,7 +32,6 @@ Stopwatch.prototype.read = function() {
         delta = NaN;
     }
 
-    // console.log('reading stopwatch %s at %s for delta reading of %s ', self.name, nowTime, delta);
     return delta;
 
     function calculateDelta(start, end) {
