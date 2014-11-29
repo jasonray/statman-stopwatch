@@ -108,6 +108,16 @@ exports.utilizeStopTwice = function(test) {
     }, 1000);
 };
 
+exports.stopReturnsTime = function(test) {
+    var stopwatch = new Stopwatch();
+    stopwatch.start();
+    setTimeout(function() {
+        var delta = stopwatch.stop();
+        verifyDelta(test, 1000, delta, defaultPrecision);
+        test.done();
+    }, 1000);
+};
+
 function verifyDelta(test, expected, actual, acceptedVariance) {
     var lowerThreshold = expected - acceptedVariance;
     var upperThreshold = expected + acceptedVariance;

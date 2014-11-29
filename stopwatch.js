@@ -10,6 +10,7 @@ Stopwatch.prototype.start = function() {
 
 Stopwatch.prototype.stop = function() {
     this.stopTime = now();
+    return this.read();
 };
 
 Stopwatch.prototype.read = function() {
