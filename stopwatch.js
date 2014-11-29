@@ -1,6 +1,6 @@
 var now = require("performance-now");
 
-function Stopwatch( autostart) {
+function Stopwatch(autostart) {
     if (autostart) this.start();
 }
 
