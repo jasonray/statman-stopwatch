@@ -11,7 +11,7 @@ Basic usage
 -----------
 Create a new stopwatch, `start()` it, and later `read()` it
 ```
-    var metrics = require('statman');
+    var metrics = require('statman-stopwatch');
     var stopwatch = new metrics.Stopwatch();
     stopwatch.start();
 
@@ -24,7 +24,7 @@ Autostart
 ---------
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
 ```
-    var metrics = require('statman');
+    var metrics = require('statman-stopwatch');
     var stopwatch = new metrics.Stopwatch(true);
 
     // do some activity
@@ -36,7 +36,7 @@ Stop
 ----
 Create a new stopwatch, `stop()` it, and later `read()` it
 ```
-    var metrics = require('statman');
+    var metrics = require('statman-stopwatch');
     var stopwatch = new metrics.Stopwatch(true);
 
     // do some activity
