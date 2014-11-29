@@ -11,12 +11,16 @@
     "url": "git://github.com/jasonray/statman-stopwatch.git"
   },
   "author": "jason ray <jason@jayray.net> (https://github.com/jasonray)",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
     "nodeunit": "~0.8.6",
     "performance-now": "^0.2.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
 }
