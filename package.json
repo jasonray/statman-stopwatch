@@ -1,6 +1,6 @@
 {
   "name": "statman-stopwatch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple high res stopwatch for node.js",
   "main": "Stopwatch.js",
   "scripts": {
@@ -16,11 +16,18 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
-    "nodeunit": "~0.8.6",
     "performance-now": "^0.2.0"
   },
   "directories": {
     "test": "test"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodeunit": "~0.8.6"
+  },
+  "keywords": [
+    "stopwatch",
+    "timing",
+    "performance",
+    "timer"
+  ]
 }
