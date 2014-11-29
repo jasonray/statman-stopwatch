@@ -1,5 +1,5 @@
-statman-stopwatch
-=================
+# statman-stopwatch [![Build Status](https://travis-ci.org/jasonray/statman-stopwatch.svg?branch=master)](https://travis-ci.org/jasonray/statman-stopwatch)
+
 
 
 Simple high res stopwatch for node.js.  Stopwatch is useful for determining the amount of time it takes to perform an activity.
