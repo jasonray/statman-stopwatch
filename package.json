@@ -16,7 +16,6 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
-    "node-uuid": "^1.4.1",
     "nodeunit": "~0.8.6",
     "performance-now": "^0.2.0",
     "underscore": "~1.6.0"
