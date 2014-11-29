@@ -1,0 +1,18 @@
+{
+  "name": "statman-stopwatch",
+  "version": "0.0.1",
+  "description": "Simple high res stopwatch for node.js",
+  "main": "stopwatch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jasonray/statman-stopwatch.git"
+  },
+  "author": "jason ray <jason@jayray.net> (https://github.com/jasonray)",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jasonray/statman-stopwatch/issues"
+  }
+}
