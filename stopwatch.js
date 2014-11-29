@@ -7,7 +7,6 @@ function Stopwatch( autostart) {
 
 Stopwatch.prototype.start = function() {
     this.startTime = now();
-    // console.log('starting stopwatch %s at %s ', self.name, self.startTime);
 };
 
 Stopwatch.prototype.stop = function() {
