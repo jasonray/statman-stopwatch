@@ -12,8 +12,7 @@ Stopwatch.prototype.start = function() {
 };
 
 Stopwatch.prototype.stop = function() {
-    var self = this;
-    self.stopTime = now();
+    this.stopTime = now();
 };
 
 Stopwatch.prototype.read = function() {
