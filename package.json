@@ -1,6 +1,6 @@
 {
   "name": "statman-stopwatch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Simple high res stopwatch for node.js",
   "main": "Stopwatch.js",
   "scripts": {
