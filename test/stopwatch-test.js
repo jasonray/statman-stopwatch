@@ -65,7 +65,6 @@ exports.twoStopWatches = function(test) {
     }, 500);
 };
 
-
 exports.utilizeStop = function(test) {
     var stopwatch = new Stopwatch();
     stopwatch.start();
