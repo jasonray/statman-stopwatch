@@ -2,7 +2,7 @@
   "name": "statman-stopwatch",
   "version": "1.0.4",
   "description": "Simple high res stopwatch for node.js",
-  "main": "Stopwatch.js",
+  "main": "lib/Stopwatch.js",
   "scripts": {
     "test": "./node_modules/nodeunit/bin/nodeunit test/"
   },

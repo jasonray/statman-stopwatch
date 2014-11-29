@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-var Stopwatch = require('../Stopwatch');
+var Stopwatch = require('../lib/Stopwatch');
 var defaultPrecision = 5;
 
 exports.initStopwatch = function(test) {
