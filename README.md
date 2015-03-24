@@ -10,40 +10,40 @@ Basic usage
 -----------
 Create a new stopwatch, `start()` it, and later `read()` it
 ```
-    var metrics = require('statman-stopwatch');
-    var stopwatch = new metrics.Stopwatch();
-    stopwatch.start();
+    var Stopwatch = require('statman-stopwatch');
+    var sw = new Stopwatch();
+    sw.start();
 
     // do some activity
 
-    var delta = stopwatch.read();
+    var delta = sw.read();
  ```
 
 Autostart
 ---------
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
 ```
-    var metrics = require('statman-stopwatch');
-    var stopwatch = new metrics.Stopwatch(true);
+    var Stopwatch = require('statman-stopwatch');
+    var sw = new Stopwatch(true);
 
     // do some activity
 
-    var delta = stopwatch.read();
+    var delta = sw.read();
  ```
 
 Stop
 ----
 Create a new stopwatch, `stop()` it, and later `read()` it
 ```
-    var metrics = require('statman-stopwatch');
-    var stopwatch = new metrics.Stopwatch(true);
+    var Stopwatch = require('statman-stopwatch');
+    var sw = new Stopwatch(true);
 
     // do some activity
 
-    stopwatch.stop();
+    sw.stop();
 
     // do some more activity
 
-	//returns time associated with when stop() occurred
-    var delta = stopwatch.read();
+    //returns time associated with when stop() occurred
+    var delta = sw.read();
  ```
