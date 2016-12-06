@@ -87,8 +87,8 @@ describe('stopwatch', function () {
         }, 100);
     });
 
-    it('start, stop, and read', function (done) {
-        var testtime = 500;
+    it('start, stop, and read should return the time at stop', function (done) {
+        var testtime = 100;
 
         var stopwatch = new Stopwatch();
         stopwatch.start();
@@ -99,7 +99,7 @@ describe('stopwatch', function () {
                 var delta = stopwatch.read();
                 verifyDelta(testtime, delta, defaultPrecision);
                 done();
-            }, 1000);
+            }, 500);
         }, testtime);
     });
 
