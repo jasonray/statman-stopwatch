@@ -56,9 +56,6 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    // it('test name', function (done) {
-    // });
-
     it('with two stopwatches, do independent reads of each', function (done) {
         var stopwatch1 = new Stopwatch();
         var stopwatch2 = new Stopwatch();
@@ -97,9 +94,11 @@ describe('stopwatch', function () {
                 verifyDelta(testtime, delta, defaultPrecision);
                 done();
             }, 1000);
-
         }, testtime);
     });
+
+    // it('test name', function (done) {
+    // });
 
 
 });
