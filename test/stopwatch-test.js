@@ -110,9 +110,6 @@ describe('stopwatch', function () {
         done();
     });
 
-    // it('test name', function (done) {
-    // });
-
     it('executing stop twice', function (done) {
         //start(), wait .1s, stop(), wait .2s, stop(), wait .5s, read(), ensure delta = .3s
         var stopwatch = new Stopwatch();
@@ -124,12 +121,26 @@ describe('stopwatch', function () {
                 stopwatch.stop();
                 setTimeout(function () {
                     var delta = stopwatch.read();
-                    verifyDelta(100+200, delta, defaultPrecision);
+                    verifyDelta(100 + 200, delta, defaultPrecision);
                     done();
                 }, 500);
             }, 200);
         }, 100);
     });
+
+    // it('test name', function (done) {
+    // });
+
+    it('ensure that stop() returns time', function (done) {
+        var testtime = 100;
+        var stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            var delta = stopwatch.stop();
+            verifyDelta(testtime, delta, defaultPrecision);
+        }, testtime);
+    });
+
 
 });
 
@@ -141,13 +152,6 @@ describe('stopwatch', function () {
 // };
 //
 // exports.stopReturnsTime = function(test) {
-//     var stopwatch = new Stopwatch();
-//     stopwatch.start();
-//     setTimeout(function() {
-//         var delta = stopwatch.stop();
-//         verifyDelta(test, 1000, delta, defaultPrecision);
-//         test.done();
-//     }, 1000);
 // };
 
 function verifyDelta(expected, actual, acceptedVariance) {
