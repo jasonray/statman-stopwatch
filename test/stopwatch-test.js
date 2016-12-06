@@ -100,27 +100,16 @@ describe('stopwatch', function () {
     // it('test name', function (done) {
     // });
 
+    it('performing read without start() returns NaN', function (done) {
+        var stopwatch = new Stopwatch();
+        stopwatch.stop();
+        assert.ok(isNaN(stopwatch.read()));
+        done();
+    });
 
 });
 
-
-// };
-//
-//
-//
-// exports.twoStopWatches = function(test) {
-
-// };
-//
-// exports.utilizeStop = function(test) {
-
-// };
-//
 // exports.stopWithoutStart = function(test) {
-//     var stopwatch = new Stopwatch();
-//     stopwatch.stop();
-//     test.ok(isNaN(stopwatch.read()));
-//     test.done();
 // };
 //
 // exports.utilizeStopTwice = function(test) {
