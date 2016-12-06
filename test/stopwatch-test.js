@@ -84,6 +84,24 @@ describe('stopwatch', function () {
         }, 500);
     });
 
+    it('utilize stop', function (done) {
+        var testtime = 500;
+
+        var stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            stopwatch.stop();
+
+            setTimeout(function () {
+                var delta = stopwatch.read();
+                verifyDelta(testtime, delta, defaultPrecision);
+                done();
+            }, 1000);
+
+        }, testtime);
+    });
+
+
 });
 
 
@@ -96,19 +114,7 @@ describe('stopwatch', function () {
 // };
 //
 // exports.utilizeStop = function(test) {
-//     var stopwatch = new Stopwatch();
-//     stopwatch.start();
-//     setTimeout(function() {
-//         stopwatch.stop();
-//
-//         setTimeout(function() {
-//             var delta = stopwatch.read();
-//             verifyDelta(test, 1000, delta, defaultPrecision);
-//             test.done();
-//
-//         }, 1000);
-//
-//     }, 1000);
+
 // };
 //
 // exports.stopWithoutStart = function(test) {
