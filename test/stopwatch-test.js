@@ -116,7 +116,7 @@ describe('stopwatch', function () {
         done();
     });
 
-    it('executing stop twice', function (done) {
+    it('executing stop twice should return time at second stop', function (done) {
         //start(), wait .1s, stop(), wait .2s, stop(), wait .5s, read(), ensure delta = .3s
         var stopwatch = new Stopwatch();
         stopwatch.start();
@@ -124,7 +124,8 @@ describe('stopwatch', function () {
             stopwatch.stop();
 
             setTimeout(function () {
-                stopwatch.stop();
+                verifyDelta(100 + 200, stopwatch.stop(), defaultPrecision);
+
                 setTimeout(function () {
                     var delta = stopwatch.read();
                     verifyDelta(100 + 200, delta, defaultPrecision);
