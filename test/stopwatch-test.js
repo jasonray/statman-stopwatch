@@ -40,17 +40,24 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('autostart', function (done) {
+    it('autostart set to true automatically starts stopwatch', function (done) {
         var testtime = 10;
 
-        var stopwatchA = new Stopwatch(true);
-        var stopwatchB = new Stopwatch(false);
+        var stopwatch = new Stopwatch(true);
         setTimeout(function () {
-            var deltaA = stopwatchA.read();
-            verifyDelta(testtime, deltaA, defaultPrecision);
+            var delta = stopwatch.read();
+            verifyDelta(testtime, delta, defaultPrecision);
+            done();
+        }, testtime);
+    });
 
-            var deltaB = stopwatchB.read();
-            assert.ok(isNaN(deltaB));
+    it('autostart set to false does NOT automatically start stopwatch', function (done) {
+        var testtime = 10;
+
+        var stopwatch = new Stopwatch(false);
+        setTimeout(function () {
+            var delta = stopwatch.read();
+            assert.ok(isNaN(delta));
             done();
         }, testtime);
     });
