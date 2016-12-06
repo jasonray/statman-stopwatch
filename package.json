@@ -16,6 +16,7 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
+    "mocha": "^3.2.0",
     "performance-now": "^0.2.0"
   },
   "directories": {
