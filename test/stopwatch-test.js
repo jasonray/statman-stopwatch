@@ -7,6 +7,8 @@ var mocha = require('mocha');
 var assert = require('assert');
 
 describe('stopwatch', function () {
+    this.timeout(3000);
+
     it('init', function (done) {
         var stopwatch = new Stopwatch();
         done();
@@ -57,6 +59,30 @@ describe('stopwatch', function () {
     // it('test name', function (done) {
     // });
 
+    it('with two stopwatches, do independent reads of each', function (done) {
+        var stopwatch1 = new Stopwatch();
+        var stopwatch2 = new Stopwatch();
+
+        stopwatch1.start();
+
+        //start first stopwatch, then do a ready 2s later
+        var testtimeA = 2000;
+        setTimeout(function () {
+            var delta1 = stopwatch1.read();
+            verifyDelta(testtimeA, delta1, defaultPrecision);
+        }, testtimeA);
+
+        //start second stopwatch 1/2 second after the first, then do a ready 3s later
+        var testtimeB = 2000;
+        setTimeout(function () {
+            stopwatch2.start();
+            setTimeout(function () {
+                var delta2 = stopwatch2.read();
+                verifyDelta(testtimeB, delta2, defaultPrecision);
+                done();
+            }, testtimeB);
+        }, 500);
+    });
 
 });
 
@@ -66,24 +92,7 @@ describe('stopwatch', function () {
 //
 //
 // exports.twoStopWatches = function(test) {
-//     var stopwatch1 = new Stopwatch();
-//     var stopwatch2 = new Stopwatch();
-//
-//     stopwatch1.start();
-//
-//     setTimeout(function() {
-//         var delta1 = stopwatch1.read();
-//         verifyDelta(test, 2000, delta1, defaultPrecision);
-//     }, 2000);
-//
-//     setTimeout(function() {
-//         stopwatch2.start();
-//         setTimeout(function() {
-//             var delta2 = stopwatch2.read();
-//             verifyDelta(test, 3000, delta2, defaultPrecision);
-//             test.done();
-//         }, 3000);
-//     }, 500);
+
 // };
 //
 // exports.utilizeStop = function(test) {
