@@ -9,8 +9,10 @@ var assert = require('assert');
 describe('stopwatch', function () {
     this.timeout(5000);
 
-    it('init', function (done) {
-        var stopwatch = new Stopwatch();
+    it('init should return an instance of stopwatch', function (done) {
+        var stopwatch;
+        stopwatch = new Stopwatch();
+        assert.ok(stopwatch);
         done();
     });
 
