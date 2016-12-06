@@ -16,14 +16,14 @@ describe('stopwatch', function () {
         done();
     });
 
-    it('start and read (1000ms)', function (done) {
-        var testtime = 1000;
+    it('start and read (100ms)', function (done) {
+        var testtime = 100;
 
         var stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
-            verifyDelta(1000, testtime, defaultPrecision);
+            verifyDelta(testtime, delta, defaultPrecision);
             done();
         }, testtime);
     });
