@@ -7,7 +7,7 @@ var mocha = require('mocha');
 var assert = require('assert');
 
 describe('stopwatch', function () {
-    this.timeout(3000);
+    this.timeout(5000);
 
     it('init', function (done) {
         var stopwatch = new Stopwatch();
@@ -97,9 +97,6 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    // it('test name', function (done) {
-    // });
-
     it('performing read without start() or stop() returns NaN', function (done) {
         var stopwatch = new Stopwatch();
         assert.ok(isNaN(stopwatch.read()));
@@ -113,29 +110,34 @@ describe('stopwatch', function () {
         done();
     });
 
+    // it('test name', function (done) {
+    // });
+
+    it('executing stop twice', function (done) {
+        //start(), wait .1s, stop(), wait .2s, stop(), wait .5s, read(), ensure delta = .3s
+        var stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            stopwatch.stop();
+
+            setTimeout(function () {
+                stopwatch.stop();
+                setTimeout(function () {
+                    var delta = stopwatch.read();
+                    verifyDelta(100+200, delta, defaultPrecision);
+                    done();
+                }, 500);
+            }, 200);
+        }, 100);
+    });
+
 });
 
 // exports.stopWithoutStart = function(test) {
 // };
 //
 // exports.utilizeStopTwice = function(test) {
-//     var stopwatch = new Stopwatch();
-//     stopwatch.start();
-//     setTimeout(function() {
-//         stopwatch.stop();
-//
-//         setTimeout(function() {
-//             stopwatch.stop();
-//             setTimeout(function() {
-//                 var delta = stopwatch.read();
-//                 verifyDelta(test, 2000, delta, defaultPrecision);
-//                 test.done();
-//
-//             }, 1000);
-//
-//         }, 1000);
-//
-//     }, 1000);
+
 // };
 //
 // exports.stopReturnsTime = function(test) {
