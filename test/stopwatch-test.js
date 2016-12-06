@@ -2,7 +2,7 @@
 "use strict";
 
 var Stopwatch = require('../lib/Stopwatch');
-var defaultPrecision = 10;
+var defaultPrecision = 15;
 var mocha = require('mocha');
 var assert = require('assert');
 
@@ -138,6 +138,7 @@ describe('stopwatch', function () {
         setTimeout(function () {
             var delta = stopwatch.stop();
             verifyDelta(testtime, delta, defaultPrecision);
+            done();
         }, testtime);
     });
 
