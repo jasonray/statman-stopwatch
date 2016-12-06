@@ -14,7 +14,7 @@ describe('stopwatch', function () {
         done();
     });
 
-    it('start, stop, and read (1000ms)', function (done) {
+    it('start and read (1000ms)', function (done) {
         var testtime = 1000;
 
         var stopwatch = new Stopwatch();
@@ -26,7 +26,7 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('start, stop, and read (10ms)', function (done) {
+    it('start and read (10ms)', function (done) {
         var testtime = 10;
 
         var stopwatch = new Stopwatch();
@@ -81,7 +81,7 @@ describe('stopwatch', function () {
         }, 500);
     });
 
-    it('utilize stop', function (done) {
+    it('start, stop, and read', function (done) {
         var testtime = 500;
 
         var stopwatch = new Stopwatch();
