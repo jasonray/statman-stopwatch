@@ -68,15 +68,15 @@ describe('stopwatch', function () {
 
         stopwatch1.start();
 
-        //start first stopwatch, then do a ready 2s later
-        var testtimeA = 2000;
+        //start first stopwatch, then do a read .3s later
+        var testtimeA = 300;
         setTimeout(function () {
             var delta1 = stopwatch1.read();
             verifyDelta(testtimeA, delta1, defaultPrecision);
         }, testtimeA);
 
-        //start second stopwatch 1/2 second after the first, then do a ready 3s later
-        var testtimeB = 2000;
+        //start second stopwatch .1s second after the first, then do a read .5s later
+        var testtimeB = 500;
         setTimeout(function () {
             stopwatch2.start();
             setTimeout(function () {
@@ -84,7 +84,7 @@ describe('stopwatch', function () {
                 verifyDelta(testtimeB, delta2, defaultPrecision);
                 done();
             }, testtimeB);
-        }, 500);
+        }, 100);
     });
 
     it('start, stop, and read', function (done) {
