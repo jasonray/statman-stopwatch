@@ -2,7 +2,7 @@
 "use strict";
 
 var Stopwatch = require('../lib/Stopwatch');
-var defaultPrecision = 5;
+var defaultPrecision = 10;
 var mocha = require('mocha');
 var assert = require('assert');
 
@@ -13,53 +13,54 @@ describe('stopwatch', function () {
     });
 
     it('start, stop, and read (1000ms)', function (done) {
+        var testtime = 1000;
+
         var stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
-            verifyDelta(1000, delta, defaultPrecision);
+            verifyDelta(1000, testtime, defaultPrecision);
             done();
-        }, 1000);
+        }, testtime);
     });
+
+    it('start, stop, and read (10ms)', function (done) {
+        var testtime = 10;
+
+        var stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            var delta = stopwatch.read();
+            verifyDelta(testtime, delta, defaultPrecision);
+            done();
+        }, testtime);
+    });
+
+    // it('test name', function (done) {
+    // });
+
+    it('autostart', function (done) {
+        var testtime = 10;
+
+        var stopwatchA = new Stopwatch(true);
+        var stopwatchB = new Stopwatch(false);
+        setTimeout(function () {
+            var deltaA = stopwatchA.read();
+            verifyDelta(testtime, deltaA, defaultPrecision);
+
+            var deltaB = stopwatchB.read();
+            assert.ok(isNaN(deltaB));
+            done();
+        }, testtime);
+    });
+
+    // it('test name', function (done) {
+    // });
+
+
 });
 
 
-// exports.initStopwatch = function(test) {
-//     var stopwatch = new Stopwatch();
-//     test.done();
-// };
-//
-// exports.startAndReadStopwatch1000 = function(test) {
-//     var stopwatch = new Stopwatch();
-//     stopwatch.start();
-//     setTimeout(function() {
-//         var delta = stopwatch.read();
-//         verifyDelta(test, 1000, delta, defaultPrecision);
-//         test.done();
-//     }, 1000);
-// };
-//
-// exports.startAndReadStopwatch10 = function(test) {
-//     var stopwatch = new Stopwatch();
-//     stopwatch.start();
-//     setTimeout(function() {
-//         var delta = stopwatch.read();
-//         verifyDelta(test, 10, delta, defaultPrecision);
-//         test.done();
-//     }, 10);
-// };
-//
-// exports.autostart = function(test) {
-//     var stopwatchA = new Stopwatch(true);
-//     var stopwatchB = new Stopwatch(false);
-//     setTimeout(function() {
-//         var deltaA = stopwatchA.read();
-//         verifyDelta(test, 1000, deltaA, defaultPrecision);
-//
-//         var deltaB = stopwatchB.read();
-//         test.ok(isNaN(deltaB));
-//         test.done();
-//     }, 1000);
 // };
 //
 //
