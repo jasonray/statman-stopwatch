@@ -38,9 +38,6 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    // it('test name', function (done) {
-    // });
-
     it('autostart', function (done) {
         var testtime = 10;
 
@@ -128,9 +125,6 @@ describe('stopwatch', function () {
         }, 100);
     });
 
-    // it('test name', function (done) {
-    // });
-
     it('ensure that stop() returns time', function (done) {
         var testtime = 100;
         var stopwatch = new Stopwatch();
@@ -141,19 +135,7 @@ describe('stopwatch', function () {
             done();
         }, testtime);
     });
-
-
 });
-
-// exports.stopWithoutStart = function(test) {
-// };
-//
-// exports.utilizeStopTwice = function(test) {
-
-// };
-//
-// exports.stopReturnsTime = function(test) {
-// };
 
 function verifyDelta(expected, actual, acceptedVariance) {
     var lowerThreshold = expected - acceptedVariance;
