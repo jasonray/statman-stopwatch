@@ -1,7 +1,7 @@
 {
   "name": "statman-stopwatch",
-  "version": "1.0.7",
-  "description": "Simple high res stopwatch for node.js",
+  "version": "1.0.8",
+  "description": "Please migrate to github: `https://github.com/jasonray/statman` npm: `statman`",
   "main": "lib/Stopwatch.js",
   "scripts": {
     "test": "mocha test/"
@@ -16,7 +16,6 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
-    "performance-now": "^0.2.0",
     "statman": "^0.1.6"
   },
   "directories": {
