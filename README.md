@@ -6,13 +6,13 @@
 ## Option 1: access directly
 Install using npm:
 ```
-npm install statman-gauge
+npm install statman-stopwatch
 ```
 
 Reference in your app:
 ```
-var Gauge = require('statman-gauge');
-var gauge = Gauge('gauge-name');
+var Stopwatch = require('statman-stopwatch');
+var stopwatch = Stopwatch();
 ```
 
 ## Option 2: access from `statman`
@@ -24,14 +24,26 @@ npm install statman
 Reference in your app:
 ```
 var statman = require('statman');
-var gauge = statman.Gauge('gauge-name');
+var stopwatch = statman.Stopwatch();
 ```
 
-Use it!
-=======
+# Use it!
+## Constructor
+* `Stopwatch()` => create instance of a stopwatch
+* `Stopwatch(true)` => create instance of stopwatch, and have it autostart
 
-Basic usage
------------
+## Start
+* `start()` => starts the stopwatch, let the timing begin!
+
+## Read
+* `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
+
+## Stop
+* `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
+
+## Example
+
+### Basic usage
 Create a new stopwatch, `start()` it, and later `read()` it
 ```
     var Stopwatch = require('statman-stopwatch');
@@ -43,8 +55,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
     var delta = sw.read();
  ```
 
-Autostart
----------
+### Autostart
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
 ```
     var Stopwatch = require('statman-stopwatch');
@@ -55,8 +66,7 @@ Autostart
     var delta = sw.read();
  ```
 
-Stop
-----
+### Stop
 Create a new stopwatch, `stop()` it, and later `read()` it
 ```
     var Stopwatch = require('statman-stopwatch');
@@ -71,3 +81,12 @@ Create a new stopwatch, `stop()` it, and later `read()` it
     //returns time associated with when stop() occurred
     var delta = sw.read();
  ```
+ 
+ # Build it!
+ 
+# Build it!
+- Make sure that you have `node` and `npm` installed
+- Clone source code to you local machine
+- Setup dependencies: `npm install`
+- run tests: `npm test`
+ 
