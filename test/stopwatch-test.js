@@ -20,7 +20,7 @@ describe('stopwatch', function () {
             stopwatch.name().should.equal('metric-name');
         });
 
-        it.skip('w/autostart as first param', function () {
+        it('w/autostart as first param', function () {
             var stopwatch = new Stopwatch(true);
             should.exist(stopwatch.name());
             stopwatch.name().should.not.equal(true);
