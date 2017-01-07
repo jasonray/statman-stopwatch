@@ -22,22 +22,6 @@ describe('stopwatch 2', function () {
         }, testtime);
     });
 
-    it.skip('start, stop, and read should return the time at stop', function (done) {
-        var testtime = 100;
-
-        var stopwatch = new Stopwatch();
-        stopwatch.start();
-        setTimeout(function () {
-            stopwatch.stop();
-
-            setTimeout(function () {
-                var delta = stopwatch.read();
-                TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
-                done();
-            }, 500);
-        }, testtime);
-    });
-
     it('performing read without start() or stop() returns NaN', function (done) {
         var stopwatch = new Stopwatch();
         assert.ok(isNaN(stopwatch.read()));
