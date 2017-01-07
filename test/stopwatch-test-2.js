@@ -22,17 +22,6 @@ describe('stopwatch 2', function () {
         }, testtime);
     });
 
-    it('autostart set to false does NOT automatically start stopwatch', function (done) {
-        var testtime = 10;
-
-        var stopwatch = new Stopwatch(false);
-        setTimeout(function () {
-            var delta = stopwatch.read();
-            assert.ok(isNaN(delta));
-            done();
-        }, testtime);
-    });
-
     it.skip('with two stopwatches, do independent reads of each', function (done) {
         var stopwatch1 = new Stopwatch();
         var stopwatch2 = new Stopwatch();
