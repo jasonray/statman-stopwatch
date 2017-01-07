@@ -9,9 +9,27 @@ var should = require('should');
 describe('stopwatch', function () {
     this.timeout(5000);
 
-    it('init should return an instance of stopwatch', function () {
-        var stopwatch = new Stopwatch();
-        should.exist(stopwatch);
+    describe('constructor', function () {
+        it('w/no params', function () {
+            var stopwatch = new Stopwatch();
+            should.exist(stopwatch);
+        });
+
+        it.skip('w/name as first param', function () {
+            var stopwatch = new Stopwatch('metric-name');
+            stopwatch.name().should.equal('metric-name');
+        });
+
+        it.skip('w/autostart as first param', function () {
+            var stopwatch = new Stopwatch(true);
+            should.exist(stopwatch.name());
+            stopwatch.name().should.not.equal(true);
+        });
+
+        it.skip('w/both name and autostart', function () {
+            var stopwatch = new Stopwatch('metric-name', true);
+            stopwatch.name().should.equal('metric-name');
+        });
     });
 
     it('start and read (100ms)', function (done) {
