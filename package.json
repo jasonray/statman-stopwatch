@@ -2,7 +2,7 @@
   "name": "statman-stopwatch",
   "version": "1.0.8",
   "description": "Please migrate to github: `https://github.com/jasonray/statman` npm: `statman`",
-  "main": "lib/Stopwatch.js",
+  "main": "lib/stopwatch.js",
   "scripts": {
     "test": "mocha test/"
   },
