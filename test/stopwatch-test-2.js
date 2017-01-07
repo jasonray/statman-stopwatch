@@ -7,7 +7,7 @@ var assert = require('assert');
 // var TestHelper = require('./testhelper');
 var should = require('should');
 
-describe('stopwatch', function () {
+describe('stopwatch 2', function () {
     this.timeout(5000);
 
     it.skip('start and read (100ms)', function (done) {
