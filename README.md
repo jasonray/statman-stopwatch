@@ -82,8 +82,6 @@ Create a new stopwatch, `stop()` it, and later `read()` it
     var delta = sw.read();
  ```
  
- # Build it!
- 
 # Build it!
 - Make sure that you have `node` and `npm` installed
 - Clone source code to you local machine
