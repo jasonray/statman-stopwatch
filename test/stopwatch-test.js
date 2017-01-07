@@ -30,6 +30,14 @@ describe('stopwatch', function () {
             var stopwatch = new Stopwatch('metric-name', true);
             stopwatch.name().should.equal('metric-name');
         });
+
+        it('autocreated names are not constant', function () {
+            var stopwatch1 = new Stopwatch(true);
+            var stopwatch2 = new Stopwatch(true);
+            console.log('stopwatch1:',stopwatch1.name());
+            console.log('stopwatch2:',stopwatch2.name());
+            stopwatch1.name().should.not.equal(stopwatch2.name());
+        });
     });
 
     it('start and read (100ms)', function (done) {
