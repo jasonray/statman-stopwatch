@@ -22,17 +22,6 @@ describe('stopwatch 2', function () {
         }, testtime);
     });
 
-    it.skip('autostart set to true automatically starts stopwatch', function (done) {
-        var testtime = 10;
-
-        var stopwatch = new Stopwatch(true);
-        setTimeout(function () {
-            var delta = stopwatch.read();
-            TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
-            done();
-        }, testtime);
-    });
-
     it('autostart set to false does NOT automatically start stopwatch', function (done) {
         var testtime = 10;
 
