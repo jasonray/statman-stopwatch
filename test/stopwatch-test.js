@@ -7,7 +7,6 @@ var mocha = require('mocha');
 var assert = require('assert');
 var should = require('should');
 
-
 describe('stopwatch', function () {
     this.timeout(5000);
 
