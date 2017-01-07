@@ -55,8 +55,7 @@ describe('stopwatch', function () {
 
         var stopwatch = new Stopwatch(false);
         setTimeout(function () {
-            var delta = stopwatch.read();
-            assert.ok(isNaN(delta));
+            stopwatch.read().should.be.NaN();
             done();
         }, testtime);
     });
