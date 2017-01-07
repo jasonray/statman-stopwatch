@@ -26,7 +26,7 @@ describe('stopwatch', function () {
             stopwatch.name().should.not.equal(true);
         });
 
-        it.skip('w/both name and autostart', function () {
+        it('w/both name and autostart', function () {
             var stopwatch = new Stopwatch('metric-name', true);
             stopwatch.name().should.equal('metric-name');
         });
