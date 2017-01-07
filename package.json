@@ -16,7 +16,7 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
-    "statman": "1.0.0"
+    "statman": "^1.0.3"
   },
   "directories": {
     "test": "test"
