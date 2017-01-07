@@ -3,17 +3,15 @@
 
 var Stopwatch = require('../lib/Stopwatch');
 var defaultPrecision = 15;
-var mocha = require('mocha');
 var assert = require('assert');
+var should = require('should');
 
 describe('stopwatch', function () {
     this.timeout(5000);
 
-    it('init should return an instance of stopwatch', function (done) {
-        var stopwatch;
-        stopwatch = new Stopwatch();
-        assert.ok(stopwatch);
-        done();
+    it('init should return an instance of stopwatch', function () {
+        var stopwatch = new Stopwatch();
+        should.exist(stopwatch);
     });
 
     it('start and read (100ms)', function (done) {
@@ -56,8 +54,7 @@ describe('stopwatch', function () {
 
         var stopwatch = new Stopwatch(false);
         setTimeout(function () {
-            var delta = stopwatch.read();
-            assert.ok(isNaN(delta));
+            stopwatch.read().should.be.NaN();
             done();
         }, testtime);
     });
@@ -147,6 +144,9 @@ describe('stopwatch', function () {
     });
 });
 
+
+//TODO:
+//replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
 function verifyDelta(expected, actual, acceptedVariance) {
     var lowerThreshold = expected - acceptedVariance;
     var upperThreshold = expected + acceptedVariance;
