@@ -1,6 +1,6 @@
 {
   "name": "statman-stopwatch",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Please migrate to github: `https://github.com/jasonray/statman` npm: `statman`",
   "main": "lib/stopwatch.js",
   "scripts": {
