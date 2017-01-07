@@ -1,7 +1,7 @@
 {
   "name": "statman-stopwatch",
-  "version": "2.0.0",
-  "description": "Please migrate to github: `https://github.com/jasonray/statman` npm: `statman`",
+  "version": "2.0.1",
+  "description": "statman-stopwatch is one of the metrics from the statman library. It is a simple high res stopwatch for node.js. Stopwatch is useful for determining the amount of time it takes to perform an activity.",
   "main": "lib/stopwatch.js",
   "scripts": {
     "test": "mocha test/"
@@ -16,12 +16,13 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
-    "statman": "^1.0.3"
+    "performance-now": "^1.0.1"
   },
   "directories": {
     "test": "test"
   },
   "devDependencies": {
+    "should": "^11.1.2",
     "mocha": "^3.2.0"
   },
   "keywords": [
@@ -29,5 +30,6 @@
     "timing",
     "performance",
     "timer"
-  ]
+  ],
+  "homepage": "https://github.com/jasonray/statman-stopwatch#readme"
 }
