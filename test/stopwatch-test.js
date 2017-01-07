@@ -146,6 +146,9 @@ describe('stopwatch', function () {
     });
 });
 
+
+//TODO:
+//replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
 function verifyDelta(expected, actual, acceptedVariance) {
     var lowerThreshold = expected - acceptedVariance;
     var upperThreshold = expected + acceptedVariance;
