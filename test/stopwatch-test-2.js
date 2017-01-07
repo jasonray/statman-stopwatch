@@ -22,31 +22,6 @@ describe('stopwatch 2', function () {
         }, testtime);
     });
 
-    it.skip('with two stopwatches, do independent reads of each', function (done) {
-        var stopwatch1 = new Stopwatch();
-        var stopwatch2 = new Stopwatch();
-
-        stopwatch1.start();
-
-        //start first stopwatch, then do a read .3s later
-        var testtimeA = 300;
-        setTimeout(function () {
-            var delta1 = stopwatch1.read();
-            TestHelper.assertCloseEnough(testtimeA, delta1, defaultPrecision);
-        }, testtimeA);
-
-        //start second stopwatch .1s second after the first, then do a read .5s later
-        var testtimeB = 500;
-        setTimeout(function () {
-            stopwatch2.start();
-            setTimeout(function () {
-                var delta2 = stopwatch2.read();
-                TestHelper.assertCloseEnough(testtimeB, delta2, defaultPrecision);
-                done();
-            }, testtimeB);
-        }, 100);
-    });
-
     it.skip('start, stop, and read should return the time at stop', function (done) {
         var testtime = 100;
 
