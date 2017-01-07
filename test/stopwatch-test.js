@@ -15,7 +15,7 @@ describe('stopwatch', function () {
             should.exist(stopwatch);
         });
 
-        it.skip('w/name as first param', function () {
+        it('w/name as first param', function () {
             var stopwatch = new Stopwatch('metric-name');
             stopwatch.name().should.equal('metric-name');
         });

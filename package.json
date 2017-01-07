@@ -16,7 +16,8 @@
     "url": "https://github.com/jasonray/statman-stopwatch/issues"
   },
   "dependencies": {
-    "performance-now": "^1.0.1"
+    "performance-now": "^1.0.1",
+    "underscore": "^1.8.3"
   },
   "directories": {
     "test": "test"
