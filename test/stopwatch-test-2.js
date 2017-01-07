@@ -22,19 +22,6 @@ describe('stopwatch 2', function () {
         }, testtime);
     });
 
-    it('performing read without start() or stop() returns NaN', function (done) {
-        var stopwatch = new Stopwatch();
-        assert.ok(isNaN(stopwatch.read()));
-        done();
-    });
-
-    it('performing read without start() returns NaN', function (done) {
-        var stopwatch = new Stopwatch();
-        stopwatch.stop();
-        assert.ok(isNaN(stopwatch.read()));
-        done();
-    });
-
     it.skip('executing stop twice should return time at second stop', function (done) {
         //start(), wait .1s, stop(), wait .2s, stop(), wait .5s, read(), ensure delta = .3s
         var stopwatch = new Stopwatch();
