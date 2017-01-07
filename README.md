@@ -1,7 +1,31 @@
 # statman-stopwatch [![Build Status](https://travis-ci.org/jasonray/statman-stopwatch.svg?branch=master)](https://travis-ci.org/jasonray/statman-stopwatch) [![on npm](http://img.shields.io/npm/v/statman-stopwatch.svg?style=flat)](https://www.npmjs.org/package/statman-stopwatch)
 
-Simple high res stopwatch for node.js.  Stopwatch is useful for determining the amount of time it takes to perform an activity.
+`statman-stopwatch` is one of the metrics from the [`statman`](https://github.com/jasonray/statman) library.  It is a simple high res stopwatch for node.js.  Stopwatch is useful for determining the amount of time it takes to perform an activity.
 
+# Install it!
+## Option 1: access directly
+Install using npm:
+```
+npm install statman-gauge
+```
+
+Reference in your app:
+```
+var Gauge = require('statman-gauge');
+var gauge = Gauge('gauge-name');
+```
+
+## Option 2: access from `statman`
+Install using npm:
+```
+npm install statman
+```
+
+Reference in your app:
+```
+var statman = require('statman');
+var gauge = statman.Gauge('gauge-name');
+```
 
 Use it!
 =======
