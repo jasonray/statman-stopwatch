@@ -9,9 +9,33 @@ var should = require('should');
 describe('stopwatch', function () {
     this.timeout(5000);
 
-    it('init should return an instance of stopwatch', function () {
-        var stopwatch = new Stopwatch();
-        should.exist(stopwatch);
+    describe('constructor', function () {
+        it('w/no params', function () {
+            var stopwatch = new Stopwatch();
+            should.exist(stopwatch);
+        });
+
+        it('w/name as first param', function () {
+            var stopwatch = new Stopwatch('metric-name');
+            stopwatch.name().should.equal('metric-name');
+        });
+
+        it('w/autostart as first param', function () {
+            var stopwatch = new Stopwatch(true);
+            should.exist(stopwatch.name());
+            stopwatch.name().should.not.equal(true);
+        });
+
+        it('w/both name and autostart', function () {
+            var stopwatch = new Stopwatch('metric-name', true);
+            stopwatch.name().should.equal('metric-name');
+        });
+
+        it('autocreated names are not constant', function () {
+            var stopwatch1 = new Stopwatch(true);
+            var stopwatch2 = new Stopwatch(true);
+            stopwatch1.name().should.not.equal(stopwatch2.name());
+        });
     });
 
     it('start and read (100ms)', function (done) {
@@ -141,6 +165,28 @@ describe('stopwatch', function () {
             verifyDelta(testtime, delta, defaultPrecision);
             done();
         }, testtime);
+    });
+
+    describe('toString()', function () {
+        it('idle', function () {
+            var stopwatch = new Stopwatch('sw');
+            //[sw => state:init; value:NaN]
+            stopwatch.toString().should.containEql('state:init');
+            stopwatch.toString().should.containEql('value:');
+        });
+        it('started', function () {
+            var stopwatch = new Stopwatch('sw', true);
+            //[sw => state:running; value:0.01]
+            stopwatch.toString().should.containEql('state:running');
+            stopwatch.toString().should.containEql('value:0');
+        });
+        it('stopped', function () {
+            var stopwatch = new Stopwatch('sw', true);
+            stopwatch.stop();
+            //[sw => state:stopped; value:0.01]
+            stopwatch.toString().should.containEql('state:stopped');
+            stopwatch.toString().should.containEql('value:0');
+        });
     });
 });
 
