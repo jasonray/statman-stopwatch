@@ -166,6 +166,28 @@ describe('stopwatch', function () {
             done();
         }, testtime);
     });
+
+    describe('toString()', function () {
+        it('idle', function () {
+            var stopwatch = new Stopwatch('sw');
+            //[sw => state:init; value:NaN]
+            stopwatch.toString().should.containEql('state:init');
+            stopwatch.toString().should.containEql('value:');
+        });
+        it('started', function () {
+            var stopwatch = new Stopwatch('sw', true);
+            //[sw => state:running; value:0.01]
+            stopwatch.toString().should.containEql('state:running');
+            stopwatch.toString().should.containEql('value:0');
+        });
+        it('stopped', function () {
+            var stopwatch = new Stopwatch('sw', true);
+            stopwatch.stop();
+            //[sw => state:stopped; value:0.01]
+            stopwatch.toString().should.containEql('state:stopped');
+            stopwatch.toString().should.containEql('value:0');
+        });
+    });
 });
 
 
