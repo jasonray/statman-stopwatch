@@ -190,8 +190,8 @@ describe('stopwatch', function () {
     });
 
     // https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/time/StopWatch.html
-    describe('java stopwatch compliance', function () {
-        it('time should equal read on a running stopwatch', function () {
+    describe.skip('java stopwatch compliance', function () {
+        it.skip('time should equal read on a running stopwatch', function () {
             //TODO: list time as alias of read
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
