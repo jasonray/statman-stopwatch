@@ -190,8 +190,8 @@ describe('stopwatch', function () {
     });
 
     // https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/time/StopWatch.html
-    describe.skip('java stopwatch compliance', function () {
-        it.skip('time should equal read on a running stopwatch', function () {
+    describe('java stopwatch compliance', function () {
+        it('time should equal read on a running stopwatch', function () {
             //TODO: list time as alias of read
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
@@ -199,7 +199,7 @@ describe('stopwatch', function () {
             var readTime = stopwatch.read();
             var time = stopwatch.time();
 
-            verifyDelta(readTime, splitTime);
+            verifyDelta(readTime, time, 10);
         });
         it.skip('reset', function () {
             // Resets the stopwatch. Stops it if need be.
