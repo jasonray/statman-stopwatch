@@ -188,6 +188,41 @@ describe('stopwatch', function () {
             stopwatch.toString().should.containEql('value:0');
         });
     });
+
+    // https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/time/StopWatch.html
+    describe('java stopwatch compliance', function () {
+        it('time should equal read on a running stopwatch', function () {
+            //TODO: list time as alias of read
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+
+            var readTime = stopwatch.read();
+            var time = stopwatch.time();
+
+            verifyDelta(readTime, splitTime);
+        });
+        it.skip('reset', function () {
+            // Resets the stopwatch. Stops it if need be.
+            // This method clears the internal values to allow the object to be reused.
+        });
+        it.skip('split/unsplit/getSplitTime', function () {
+            // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
+            // Remove a split.  This method clears the stop time. The start time is unaffected, enabling timing from the original start point to continue.
+            // IllegalStateException - if the StopWatch is not running. (on split)
+            // IllegalStateException - if the StopWatch has not yet been split. (on unsplit)
+        });
+        it.skip('suspend/resume', function() {
+            // This method suspends the watch until it is resumed. The watch will not include time between the suspend and resume calls in the total time.
+            // IllegalStateException - if the StopWatch is not currently running.
+            // IllegalStateException - if the StopWatch has not been suspended.
+        });
+        it.skip('start while already running', function() {
+            // IllegalStateException - if the StopWatch is already running.
+        });
+        it.skip('stop while not running', function() {
+            // IllegalStateException - if the StopWatch is not running.
+        });
+    });
 });
 
 
