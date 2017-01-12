@@ -213,12 +213,12 @@ describe('stopwatch', function () {
 
         });
         describe('reset', function () {
-            it('reseting a not-started stopwatch should have no effect', function () {
+            it('resetting a not-started stopwatch should have no effect', function () {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.reset();
                 stopwatch.state().should.be.equal("init");
             });
-            it('reseting a started stopwatch should bring it back to init', function () {
+            it('resetting a started stopwatch should bring it back to init', function () {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
                 stopwatch.reset();
@@ -226,7 +226,7 @@ describe('stopwatch', function () {
                 should.not.exist(stopwatch.stopTime);
                 stopwatch.state().should.be.equal("init");
             });
-            it('reseting a stopped stopwatch should bring it back to init', function () {
+            it('resetting a stopped stopwatch should bring it back to init', function () {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
                 stopwatch.stop();
@@ -235,7 +235,7 @@ describe('stopwatch', function () {
                 should.not.exist(stopwatch.stopTime);
                 stopwatch.state().should.be.equal("init");
             });
-            it.skip('reseting a split stopwatch should bring it back to init', function () {
+            it.skip('resetting a split stopwatch should bring it back to init', function () {
             });
         });
         describe('split', function () {
