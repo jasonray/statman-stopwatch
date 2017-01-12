@@ -404,7 +404,7 @@ describe('stopwatch', function () {
                 },
                 Error);
         });
-        it.skip('cannot stop a stopped stopwatch', function () {
+        it('cannot stop a stopped stopwatch', function () {
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
             stopwatch.split();
