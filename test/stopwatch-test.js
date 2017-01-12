@@ -237,15 +237,15 @@ describe('stopwatch', function () {
             });
         });
         describe('split', function () {
-            it('start, split, then getSplit will return the split time', function () {
+            it('start, split, then getSplit will return the split time', function (done) {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
 
                 setTimeout(function () {
                     stopwatch.split();
                     setTimeout(function () {
-                        verifyDelta(100, stopwatch.time, 10);
-                        verifyDelta(200, stopwatch.splitTime, 10);
+                        verifyDelta(100, stopwatch.time(), 10);
+                        verifyDelta(100, stopwatch.splitTime(), 10);
                         done();
                     }, 200);
                 }, 100);
