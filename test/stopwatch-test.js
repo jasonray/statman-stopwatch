@@ -206,6 +206,7 @@ describe('stopwatch', function () {
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
             setTimeout(function () {
+                stopwatch.stop();
                 stopwatch.read().should.be.equal(stopwatch.time());
                 done();
             }, 10);
