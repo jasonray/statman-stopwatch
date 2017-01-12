@@ -310,8 +310,10 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it.skip('cannot split a split stopwatch (for now, this may change)', function () {
+            it('cannot split a split stopwatch (for now, this may change)', function () {
                 var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.split();
                 assert.throws(
                     function () {
                         stopwatch.split();
