@@ -215,6 +215,23 @@ describe('stopwatch', function () {
             stopwatch.reset();
             stopwatch.state().should.be.equal("init");
         });
+        it('reseting a started stopwatch should bring it back to init', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.reset();
+            should.not.exist(stopwatch.startTime);
+            should.not.exist(stopwatch.stopTime);
+            stopwatch.state().should.be.equal("init");
+        });
+        it('reseting a stopped stopwatch should bring it back to init', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.stop();
+            stopwatch.reset();
+            should.not.exist(stopwatch.startTime);
+            should.not.exist(stopwatch.stopTime);
+            stopwatch.state().should.be.equal("init");
+        });
         it.skip('split/unsplit/getSplitTime', function () {
             // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
             // Remove a split.  This method clears the stop time. The start time is unaffected, enabling timing from the original start point to continue.
