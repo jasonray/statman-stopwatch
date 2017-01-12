@@ -342,11 +342,33 @@ describe('stopwatch', function () {
                     }, 75);
                 }, 50);
             });
-            it.skip('cannot unsplit a init stopwatch', function () {
+            it('cannot unsplit a init stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.unsplit();
+                    },
+                    Error);
             });
             it.skip('cannot unsplit a running stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
             });
             it.skip('cannot unsplit a stopped stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
             });
         });
         it.skip('suspend/resume', function () {
