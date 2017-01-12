@@ -235,7 +235,14 @@ describe('stopwatch', function () {
                 should.not.exist(stopwatch.stopTime);
                 stopwatch.state().should.be.equal("init");
             });
-            it.skip('resetting a split stopwatch should bring it back to init', function () {
+            it('resetting a split stopwatch should bring it back to init', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.split();
+                stopwatch.reset();
+                should.not.exist(stopwatch.startTime);
+                should.not.exist(stopwatch.stopTime);
+                stopwatch.state().should.be.equal("init");
             });
         });
         describe('split', function () {
