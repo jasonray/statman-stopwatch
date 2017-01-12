@@ -291,7 +291,16 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it.skip('cannot call get splitTime() folllowing unsplit', function () {
+            it('cannot call get splitTime() folllowing unsplit', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.split();
+                stopwatch.unsplit();
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
             });
             it('cannot split a init stopwatch', function () {
                 var stopwatch = new Stopwatch('sw');
