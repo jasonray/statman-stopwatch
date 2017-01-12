@@ -394,7 +394,7 @@ describe('stopwatch', function () {
                 },
                 Error);
         });
-        it.skip('cannot stop a init stopwatch', function () {
+        it('cannot stop a init stopwatch', function () {
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
             stopwatch.split();
