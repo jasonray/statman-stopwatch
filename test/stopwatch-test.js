@@ -375,7 +375,7 @@ describe('stopwatch', function () {
             // IllegalStateException - if the StopWatch is not currently running.
             // IllegalStateException - if the StopWatch has not been suspended.
         });
-        it.skip('cannot start a running stopwatch', function () {
+        it('cannot start a running stopwatch', function () {
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
             assert.throws(
