@@ -239,7 +239,7 @@ describe('stopwatch', function () {
             });
         });
         describe('split', function () {
-            it('start, split, then splitTime() will return the split time', function (done) {
+            it('splitTime() will return the split time', function (done) {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
 
@@ -251,7 +251,7 @@ describe('stopwatch', function () {
                     }, 200);
                 }, 100);
             });
-            it('start, split, then time will return the split time', function (done) {
+            it('on split, time/read will return the split time', function (done) {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
 
@@ -259,11 +259,12 @@ describe('stopwatch', function () {
                     stopwatch.split();
                     setTimeout(function () {
                         verifyDelta(100, stopwatch.time(), 10);
+                        verifyDelta(100, stopwatch.read(), 10);
                         done();
                     }, 200);
                 }, 100);
             });
-            it('splitTime() on non-started stopwatch returns error', function () {
+            it('cannot call get splitTime on a init stopwatch', function () {
                 var stopwatch = new Stopwatch('sw');
                 assert.throws(
                     function () {
@@ -271,15 +272,7 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('split on non-started stopwatch returns error', function () {
-                var stopwatch = new Stopwatch('sw');
-                assert.throws(
-                    function () {
-                        stopwatch.split();
-                    },
-                    Error);
-            });
-            it('start, splitTime() returns error', function () {
+            it.skip('cannot call get splitTime() on a running stopwatch', function () {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
                 assert.throws(
@@ -288,7 +281,41 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('start, split, unsplit, time returns time from start', function (done) {
+            it.skip('cannot call get splitTime() on a stopped stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
+            });
+            it.skip('cannot call get splitTime() folllowing unsplit', function () {
+            });
+            it('cannot split a init stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
+            });
+            it.skip('cannot split a split stopwatch (for now, this may change)', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
+            });
+            it.skip('cannot split a stopped stopwatch (for now, this may change)', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
+            });
+            it('unsplit, time returns time from start', function (done) {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
                 setTimeout(function () {
@@ -300,7 +327,11 @@ describe('stopwatch', function () {
                     }, 75);
                 }, 50);
             });
-            it.skip('start, split, unsplit, getSplit returns error', function () {
+            it.skip('cannot unsplit a init stopwatch', function () {
+            });
+            it.skip('cannot unsplit a running stopwatch', function () {
+            });
+            it.skip('cannot unsplit a stopped stopwatch', function () {
             });
         });
         it.skip('suspend/resume', function () {
