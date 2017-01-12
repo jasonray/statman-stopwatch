@@ -188,6 +188,240 @@ describe('stopwatch', function () {
             stopwatch.toString().should.containEql('value:0');
         });
     });
+
+    // https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/time/StopWatch.html
+    describe('java stopwatch compliance', function () {
+        it('time should equal read on a running stopwatch', function () {
+            //TODO: list time as alias of read
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+
+            var readTime = stopwatch.read();
+            var time = stopwatch.time();
+
+            verifyDelta(readTime, time, 10);
+        });
+        it('time should equal read on a stopped stopwatch', function (done) {
+            //TODO: list time as alias of read
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            setTimeout(function () {
+                stopwatch.stop();
+                stopwatch.read().should.be.equal(stopwatch.time());
+                done();
+            }, 10);
+
+        });
+        describe('reset', function () {
+            it('resetting a not-started stopwatch should have no effect', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.reset();
+                stopwatch.state().should.be.equal("init");
+            });
+            it('resetting a started stopwatch should bring it back to init', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.reset();
+                should.not.exist(stopwatch.startTime);
+                should.not.exist(stopwatch.stopTime);
+                stopwatch.state().should.be.equal("init");
+            });
+            it('resetting a stopped stopwatch should bring it back to init', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
+                stopwatch.reset();
+                should.not.exist(stopwatch.startTime);
+                should.not.exist(stopwatch.stopTime);
+                stopwatch.state().should.be.equal("init");
+            });
+            it('resetting a split stopwatch should bring it back to init', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.split();
+                stopwatch.reset();
+                should.not.exist(stopwatch.startTime);
+                should.not.exist(stopwatch.stopTime);
+                stopwatch.state().should.be.equal("init");
+            });
+        });
+        describe('split', function () {
+            it('splitTime() will return the split time', function (done) {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+
+                setTimeout(function () {
+                    stopwatch.split();
+                    setTimeout(function () {
+                        verifyDelta(100, stopwatch.splitTime(), 10);
+                        done();
+                    }, 200);
+                }, 100);
+            });
+            it('on split, time/read will return the split time', function (done) {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+
+                setTimeout(function () {
+                    stopwatch.split();
+                    setTimeout(function () {
+                        verifyDelta(100, stopwatch.time(), 10);
+                        verifyDelta(100, stopwatch.read(), 10);
+                        done();
+                    }, 200);
+                }, 100);
+            });
+            it('cannot call get splitTime on a init stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
+            });
+            it('cannot call get splitTime() on a running stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
+            });
+            it('cannot call get splitTime() on a stopped stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
+            });
+            it('cannot call get splitTime() folllowing unsplit', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.split();
+                stopwatch.unsplit();
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
+            });
+            it('cannot split a init stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
+            });
+            it('cannot split a split stopwatch (for now, this may change)', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.split();
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
+            });
+            it('cannot split a stopped stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
+                assert.throws(
+                    function () {
+                        stopwatch.split();
+                    },
+                    Error);
+            });
+            it('unsplit, time returns time from start', function (done) {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                setTimeout(function () {
+                    stopwatch.split();
+                    setTimeout(function () {
+                        stopwatch.unsplit();
+                        verifyDelta(50 + 75, stopwatch.time(), 20);
+                        done();
+                    }, 75);
+                }, 50);
+            });
+            it('cannot unsplit a init stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                assert.throws(
+                    function () {
+                        stopwatch.unsplit();
+                    },
+                    Error);
+            });
+            it('cannot unsplit a running stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                assert.throws(
+                    function () {
+                        stopwatch.unsplit();
+                    },
+                    Error);
+            });
+            it('cannot unsplit a stopped stopwatch', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
+                assert.throws(
+                    function () {
+                        stopwatch.unsplit();
+                    },
+                    Error);
+            });
+        });
+        it.skip('suspend/resume', function () {
+            // This method suspends the watch until it is resumed. The watch will not include time between the suspend and resume calls in the total time.
+            // IllegalStateException - if the StopWatch is not currently running.
+            // IllegalStateException - if the StopWatch has not been suspended.
+        });
+        it('cannot start a running stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+        it('cannot start a split stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+        it('cannot stop a init stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+        it('cannot stop a stopped stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+    });
 });
 
 

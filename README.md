@@ -35,8 +35,9 @@ var stopwatch = statman.Stopwatch();
 ## Start
 * `start()` => starts the stopwatch, let the timing begin!
 
-## Read
+## read
 * `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
+* `time()` => alias for `read()`
 
 ## Stop
 * `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
