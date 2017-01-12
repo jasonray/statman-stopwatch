@@ -210,9 +210,10 @@ describe('stopwatch', function () {
             }, 10);
 
         });
-        it.skip('reset', function () {
-            // Resets the stopwatch. Stops it if need be.
-            // This method clears the internal values to allow the object to be reused.
+        it('reseting a not-started stopwatch should have no effect', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.reset();
+            stopwatch.state().should.be.equal("init");
         });
         it.skip('split/unsplit/getSplitTime', function () {
             // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
