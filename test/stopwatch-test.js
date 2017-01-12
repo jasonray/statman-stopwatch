@@ -337,7 +337,7 @@ describe('stopwatch', function () {
                     stopwatch.split();
                     setTimeout(function () {
                         stopwatch.unsplit();
-                        verifyDelta(50 + 75, stopwatch.time(), 10);
+                        verifyDelta(50 + 75, stopwatch.time(), 20);
                         done();
                     }, 75);
                 }, 50);
