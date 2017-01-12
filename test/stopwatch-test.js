@@ -201,12 +201,13 @@ describe('stopwatch', function () {
 
             verifyDelta(readTime, time, 10);
         });
-        it('time should equal read on a stopped stopwatch', function () {
+        it('time should equal read on a stopped stopwatch', function (done) {
             //TODO: list time as alias of read
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
             setTimeout(function () {
                 stopwatch.read().should.be.equal(stopwatch.time());
+                done();
             }, 10);
 
         });
