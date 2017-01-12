@@ -236,11 +236,37 @@ describe('stopwatch', function () {
                 stopwatch.state().should.be.equal("init");
             });
         });
-        it('split/unsplit/getSplitTime', function () {
-            // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
-            // Remove a split.  This method clears the stop time. The start time is unaffected, enabling timing from the original start point to continue.
-            // IllegalStateException - if the StopWatch is not running. (on split)
-            // IllegalStateException - if the StopWatch has not yet been split. (on unsplit)
+        describe('split', function () {
+            it('start, split, then getSplit will return the split time', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+
+                setTimeout(function () {
+                    stopwatch.split();
+                    setTimeout(function () {
+                        verifyDelta(100, stopwatch.time, 10);
+                        verifyDelta(200, stopwatch.splitTime, 10);
+                        done();
+                    }, 200);
+                }, 100);
+                stopwatch.stop();
+                stopwatch.reset();
+                should.not.exist(stopwatch.startTime);
+                should.not.exist(stopwatch.stopTime);
+                stopwatch.state().should.be.equal("init");
+            });
+            it('split/unsplit/getSplitTime', function () {
+                // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
+                // Remove a split.  This method clears the stop time. The start time is unaffected, enabling timing from the original start point to continue.
+                // IllegalStateException - if the StopWatch is not running. (on split)
+                // IllegalStateException - if the StopWatch has not yet been split. (on unsplit)
+            });
+            it('split/unsplit/getSplitTime', function () {
+                // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
+                // Remove a split.  This method clears the stop time. The start time is unaffected, enabling timing from the original start point to continue.
+                // IllegalStateException - if the StopWatch is not running. (on split)
+                // IllegalStateException - if the StopWatch has not yet been split. (on unsplit)
+            });
         });
         it.skip('suspend/resume', function () {
             // This method suspends the watch until it is resumed. The watch will not include time between the suspend and resume calls in the total time.
