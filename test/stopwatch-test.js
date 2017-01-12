@@ -375,11 +375,44 @@ describe('stopwatch', function () {
             // IllegalStateException - if the StopWatch is not currently running.
             // IllegalStateException - if the StopWatch has not been suspended.
         });
-        it.skip('start while already running', function () {
-            // IllegalStateException - if the StopWatch is already running.
+        it.skip('cannot start a running stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
         });
-        it.skip('stop while not running', function () {
-            // IllegalStateException - if the StopWatch is not running.
+        it.skip('cannot start a split stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+        it.skip('cannot stop a init stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+        it.skip('cannot stop a stopped stopwatch', function () {
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
         });
     });
 });
