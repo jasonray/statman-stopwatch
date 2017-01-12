@@ -359,13 +359,13 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it.skip('cannot unsplit a stopped stopwatch', function () {
+            it('cannot unsplit a stopped stopwatch', function () {
                 var stopwatch = new Stopwatch('sw');
                 stopwatch.start();
                 stopwatch.stop();
                 assert.throws(
                     function () {
-                        stopwatch.split();
+                        stopwatch.unsplit();
                     },
                     Error);
             });
