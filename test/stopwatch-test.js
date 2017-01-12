@@ -201,6 +201,15 @@ describe('stopwatch', function () {
 
             verifyDelta(readTime, time, 10);
         });
+        it('time should equal read on a stopped stopwatch', function () {
+            //TODO: list time as alias of read
+            var stopwatch = new Stopwatch('sw');
+            stopwatch.start();
+            setTimeout(  function() {
+                stopwatch.read().should.be.equal(stopwatch.time());
+            },10);
+
+        });
         it.skip('reset', function () {
             // Resets the stopwatch. Stops it if need be.
             // This method clears the internal values to allow the object to be reused.
