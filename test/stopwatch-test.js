@@ -288,7 +288,16 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it.skip('start, split, unsplit, time returns time from start', function () {
+            it('start, split, unsplit, time returns time from start', function (done) {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                setTimeout(function () {
+                    stopwatch.split();
+                    setTimeout(function () {
+                        stopwatch.unsplit();
+                        verifyDelta(50 + 75, stopwatch.time(), 10);
+                    }, 75);
+                }, 50);
             });
             it.skip('start, split, unsplit, getSplit returns error', function () {
             });
