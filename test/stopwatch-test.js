@@ -279,7 +279,14 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it.skip('start, splitTime() returns error', function () {
+            it('start, splitTime() returns error', function () {
+                var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                assert.throws(
+                    function () {
+                        stopwatch.splitTime();
+                    },
+                    Error);
             });
             it.skip('start, split, unsplit, time returns time from start', function () {
             });
