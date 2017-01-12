@@ -281,8 +281,10 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it.skip('cannot call get splitTime() on a stopped stopwatch', function () {
+            it('cannot call get splitTime() on a stopped stopwatch', function () {
                 var stopwatch = new Stopwatch('sw');
+                stopwatch.start();
+                stopwatch.stop();
                 assert.throws(
                     function () {
                         stopwatch.splitTime();
