@@ -205,9 +205,9 @@ describe('stopwatch', function () {
             //TODO: list time as alias of read
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
-            setTimeout(  function() {
+            setTimeout(function () {
                 stopwatch.read().should.be.equal(stopwatch.time());
-            },10);
+            }, 10);
 
         });
         it.skip('reset', function () {
@@ -220,15 +220,15 @@ describe('stopwatch', function () {
             // IllegalStateException - if the StopWatch is not running. (on split)
             // IllegalStateException - if the StopWatch has not yet been split. (on unsplit)
         });
-        it.skip('suspend/resume', function() {
+        it.skip('suspend/resume', function () {
             // This method suspends the watch until it is resumed. The watch will not include time between the suspend and resume calls in the total time.
             // IllegalStateException - if the StopWatch is not currently running.
             // IllegalStateException - if the StopWatch has not been suspended.
         });
-        it.skip('start while already running', function() {
+        it.skip('start while already running', function () {
             // IllegalStateException - if the StopWatch is already running.
         });
-        it.skip('stop while not running', function() {
+        it.skip('stop while not running', function () {
             // IllegalStateException - if the StopWatch is not running.
         });
     });
