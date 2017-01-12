@@ -249,11 +249,6 @@ describe('stopwatch', function () {
                         done();
                     }, 200);
                 }, 100);
-                stopwatch.stop();
-                stopwatch.reset();
-                should.not.exist(stopwatch.startTime);
-                should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal("init");
             });
             it('split/unsplit/getSplitTime', function () {
                 // Split the time.  This method sets the stop time of the watch to allow a time to be extracted. The start time is unaffected, enabling unsplit() to continue the timing from the original start point.
