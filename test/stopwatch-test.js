@@ -384,7 +384,7 @@ describe('stopwatch', function () {
                 },
                 Error);
         });
-        it.skip('cannot start a split stopwatch', function () {
+        it('cannot start a split stopwatch', function () {
             var stopwatch = new Stopwatch('sw');
             stopwatch.start();
             stopwatch.split();
