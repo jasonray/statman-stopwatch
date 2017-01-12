@@ -263,7 +263,7 @@ describe('stopwatch', function () {
                     }, 200);
                 }, 100);
             });
-            it.skip('splitTime() on non-started stopwatch returns error', function () {
+            it('splitTime() on non-started stopwatch returns error', function () {
                 var stopwatch = new Stopwatch('sw');
                 assert.throws(
                     function () {
