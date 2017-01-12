@@ -296,6 +296,7 @@ describe('stopwatch', function () {
                     setTimeout(function () {
                         stopwatch.unsplit();
                         verifyDelta(50 + 75, stopwatch.time(), 10);
+                        done();
                     }, 75);
                 }, 50);
             });
