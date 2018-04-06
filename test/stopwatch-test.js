@@ -124,6 +124,15 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
+    it('can restart a stopwatch', function () {
+        var testtime = 100;
+
+        var stopwatch = new Stopwatch();
+        stopwatch.start();
+        stopwatch.stop();
+        stopwatch.start();
+    });
+
     it('performing read without start() or stop() returns NaN', function (done) {
         var stopwatch = new Stopwatch();
         assert.ok(isNaN(stopwatch.read()));
