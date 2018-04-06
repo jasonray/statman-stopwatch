@@ -12,7 +12,7 @@ npm install statman-stopwatch
 Reference in your app:
 ```
 var Stopwatch = require('statman-stopwatch');
-var stopwatch = Stopwatch();
+var stopwatch = new Stopwatch();
 ```
 
 ## Option 2: access from `statman`
@@ -24,7 +24,7 @@ npm install statman
 Reference in your app:
 ```
 var statman = require('statman');
-var stopwatch = statman.Stopwatch();
+var stopwatch = new statman.Stopwatch();
 ```
 
 # Use it!
