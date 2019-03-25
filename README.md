@@ -2,6 +2,8 @@
 
 `statman-stopwatch` is one of the metrics from the [`statman`](https://github.com/jasonray/statman) library.  It is a simple high res stopwatch for node.js.  Stopwatch is useful for determining the amount of time it takes to perform an activity.
 
+For example, you may want to determine how long certain potentially expensive activities take in your code (such as calling to an external web services or fetching a dataset from a database).  Few lines of code will let you capture that info.  There are much more elegant solutions - this is a simple roll-your-own approach.
+
 # Install it!
 ## Option 1: access directly
 Install using npm:
