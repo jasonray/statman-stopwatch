@@ -1,6 +1,8 @@
-# statman-stopwatch [![Build Status](https://travis-ci.org/jasonray/statman-stopwatch.svg?branch=master)](https://travis-ci.org/jasonray/statman-stopwatch) [![on npm](http://img.shields.io/npm/v/statman-stopwatch.svg?style=flat)](https://www.npmjs.org/package/statman-stopwatch)
+# statman-stopwatch [![Build Status](https://travis-ci.org/jasonray/statman-stopwatch.svg?branch=master)](https://travis-ci.org/jasonray/statman-stopwatch) [![on npm](http://img.shields.io/npm/v/statman-stopwatch.svg?style=flat)](https://www.npmjs.org/package/statman-stopwatch) [![Greenkeeper](https://badges.greenkeeper.io/jasonray/statman-stopwatch.svg)](https://greenkeeper.io/) [![Dependency badge](https://david-dm.org/jasonray/statman-stopwatch.svg)](https://david-dm.org/jasonray/statman-stopwatch)
 
 `statman-stopwatch` is one of the metrics from the [`statman`](https://github.com/jasonray/statman) library.  It is a simple high res stopwatch for node.js.  Stopwatch is useful for determining the amount of time it takes to perform an activity.
+
+For example, you may want to determine how long certain potentially expensive activities take in your code (such as calling to an external web services or fetching a dataset from a database).  Few lines of code will let you capture that info.  There are much more elegant solutions - this is a simple roll-your-own approach.
 
 # Install it!
 ## Option 1: access directly
