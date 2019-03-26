@@ -58,6 +58,8 @@ var stopwatch = new statman.Stopwatch();
 
 ## Example
 
+There are some examples in `example/example.js`
+
 ### Basic usage
 Create a new stopwatch, `start()` it, and later `read()` it
 ```
