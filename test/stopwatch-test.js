@@ -11,7 +11,7 @@ const should = require('should');
 function verifyDelta(expected, actual, acceptedconstiance) {
     const lowerThreshold = expected - acceptedconstiance;
     const upperThreshold = expected + acceptedconstiance;
-    const message = "Expected " + expected + " ± " + acceptedconstiance + ", was " + actual + ".";
+    const message = 'Expected ' + expected + ' ± ' + acceptedconstiance + ', was ' + actual + '.';
     assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
 }
 
@@ -234,7 +234,7 @@ describe('stopwatch', function () {
             it('resetting a not-started stopwatch should have no effect', function () {
                 const stopwatch = new Stopwatch('sw');
                 stopwatch.reset();
-                stopwatch.state().should.be.equal("init");
+                stopwatch.state().should.be.equal('init');
             });
             it('resetting a started stopwatch should bring it back to init', function () {
                 const stopwatch = new Stopwatch('sw');
@@ -242,7 +242,7 @@ describe('stopwatch', function () {
                 stopwatch.reset();
                 should.not.exist(stopwatch.startTime);
                 should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal("init");
+                stopwatch.state().should.be.equal('init');
             });
             it('resetting a stopped stopwatch should bring it back to init', function () {
                 const stopwatch = new Stopwatch('sw');
@@ -251,7 +251,7 @@ describe('stopwatch', function () {
                 stopwatch.reset();
                 should.not.exist(stopwatch.startTime);
                 should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal("init");
+                stopwatch.state().should.be.equal('init');
             });
             it('resetting a split stopwatch should bring it back to init', function () {
                 const stopwatch = new Stopwatch('sw');
@@ -260,7 +260,7 @@ describe('stopwatch', function () {
                 stopwatch.reset();
                 should.not.exist(stopwatch.startTime);
                 should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal("init");
+                stopwatch.state().should.be.equal('init');
             });
         });
         describe('split', function () {
