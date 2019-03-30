@@ -53,7 +53,7 @@ describe('stopwatch', function () {
         const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
-            var delta = stopwatch.read();
+            const delta = stopwatch.read();
             verifyDelta(testtime, delta, defaultPrecision);
             done();
         }, testtime);
