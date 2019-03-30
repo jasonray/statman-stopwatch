@@ -25,7 +25,7 @@ describe('stopwatch', function () {
         });
 
         it('w/name as first param', function () {
-            var stopwatch = new Stopwatch('metric-name');
+            const stopwatch = new Stopwatch('metric-name');
             stopwatch.name().should.equal('metric-name');
         });
 
