@@ -100,8 +100,8 @@ Create a new stopwatch, `stop()` it, and later `read()` it
  ```
  
 ## Build it!
-- Make sure that you have `node` and `npm` installed
-- Clone source code to you local machine
-- Setup dependencies: `npm install`
-- run tests: `npm test`
+-   Make sure that you have `node` and `npm` installed
+-   Clone source code to you local machine
+-   Setup dependencies: `npm install`
+-   run tests: `npm test`
  
