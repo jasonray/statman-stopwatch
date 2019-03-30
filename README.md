@@ -31,30 +31,30 @@ var stopwatch = new statman.Stopwatch();
 
 ## Use it!
 ### Constructor
-* `Stopwatch()` => create instance of a stopwatch
-* `Stopwatch(true)` => create instance of stopwatch, and have it autostart
+*   `Stopwatch()` => create instance of a stopwatch
+*   `Stopwatch(true)` => create instance of stopwatch, and have it autostart
 
 ### start
-* `start()` => starts the stopwatch, let the timing begin!
+*   `start()` => starts the stopwatch, let the timing begin!
 
 ### read
-* `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
-* `time()` => alias for `read()`
+*   `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
+*   `time()` => alias for `read()`
 
 ### stop
-* `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
+*   `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
 
 ### split
-* `split()` => temp stops the stopwatch, allow read() to return time based on when split occurs.  Use `unsplit()` to resume the stopwatch
+*   `split()` => temp stops the stopwatch, allow read() to return time based on when split occurs.  Use `unsplit()` to resume the stopwatch
 
 ### unsplit
-* `unsplit()` => use follow a `split()` to resume the stopwatch
+*   `unsplit()` => use follow a `split()` to resume the stopwatch
 
 ### splitTime
-* `splitTime` => while the stopwatch is split, returns the time as of the split
+*   `splitTime` => while the stopwatch is split, returns the time as of the split
 
 ### reset
-* `reset()` => restores the stopwatch back to init state and clears start and stop times
+*   `reset()` => restores the stopwatch back to init state and clears start and stop times
 
 ### Example
 
@@ -62,7 +62,7 @@ There are some examples in `example/example.js`
 
 #### Basic usage
 Create a new stopwatch, `start()` it, and later `read()` it
-```
+``` javascript
     var Stopwatch = require('statman-stopwatch');
     var sw = new Stopwatch();
     sw.start();
@@ -74,7 +74,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
 
 #### Autostart
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
-```
+``` javascript
     var Stopwatch = require('statman-stopwatch');
     var sw = new Stopwatch(true);
 
@@ -85,7 +85,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
 
 #### Stop
 Create a new stopwatch, `stop()` it, and later `read()` it
-```
+``` javascript
     var Stopwatch = require('statman-stopwatch');
     var sw = new Stopwatch(true);
 
