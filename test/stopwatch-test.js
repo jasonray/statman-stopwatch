@@ -20,7 +20,7 @@ describe('stopwatch', function () {
 
     describe('constructor', function () {
         it('w/no params', function () {
-            var stopwatch = new Stopwatch();
+            const stopwatch = new Stopwatch();
             should.exist(stopwatch);
         });
 
