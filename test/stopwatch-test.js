@@ -83,7 +83,7 @@ describe('stopwatch', function () {
     });
 
     it('autostart set to false does NOT automatically start stopwatch', function (done) {
-        var testtime = 10;
+        const testtime = 10;
 
         var stopwatch = new Stopwatch(false);
         setTimeout(function () {
