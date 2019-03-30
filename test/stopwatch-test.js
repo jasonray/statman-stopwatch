@@ -85,7 +85,7 @@ describe('stopwatch', function () {
     it('autostart set to false does NOT automatically start stopwatch', function (done) {
         const testtime = 10;
 
-        var stopwatch = new Stopwatch(false);
+        const stopwatch = new Stopwatch(false);
         setTimeout(function () {
             stopwatch.read().should.be.NaN();
             done();
