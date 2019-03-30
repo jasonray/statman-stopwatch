@@ -30,7 +30,7 @@ describe('stopwatch', function () {
         });
 
         it('w/autostart as first param', function () {
-            var stopwatch = new Stopwatch(true);
+            const stopwatch = new Stopwatch(true);
             should.exist(stopwatch.name());
             stopwatch.name().should.not.equal(true);
         });
