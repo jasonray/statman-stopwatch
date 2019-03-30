@@ -41,8 +41,8 @@ describe('stopwatch', function () {
         });
 
         it('autocreated names are not constant', function () {
-            var stopwatch1 = new Stopwatch(true);
-            var stopwatch2 = new Stopwatch(true);
+            const stopwatch1 = new Stopwatch(true);
+            const stopwatch2 = new Stopwatch(true);
             stopwatch1.name().should.not.equal(stopwatch2.name());
         });
     });
