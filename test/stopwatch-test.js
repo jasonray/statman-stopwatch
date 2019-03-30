@@ -6,6 +6,15 @@ var defaultPrecision = 15;
 var assert = require('assert');
 var should = require('should');
 
+//TODO:
+//replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
+function verifyDelta(expected, actual, acceptedVariance) {
+    var lowerThreshold = expected - acceptedVariance;
+    var upperThreshold = expected + acceptedVariance;
+    var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
+    assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
+}
+
 describe('stopwatch', function () {
     this.timeout(5000);
 
@@ -434,11 +443,3 @@ describe('stopwatch', function () {
 });
 
 
-//TODO:
-//replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
-function verifyDelta(expected, actual, acceptedVariance) {
-    var lowerThreshold = expected - acceptedVariance;
-    var upperThreshold = expected + acceptedVariance;
-    var message = "Expected " + expected + " ± " + acceptedVariance + ", was " + actual + ".";
-    assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
-}
