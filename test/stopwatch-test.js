@@ -1,10 +1,10 @@
 /*jslint node: true */
 "use strict";
 
-var Stopwatch = require('../lib/Stopwatch');
-var defaultPrecision = 15;
-var assert = require('assert');
-var should = require('should');
+const Stopwatch = require('../lib/Stopwatch');
+const defaultPrecision = 15;
+const assert = require('assert');
+const should = require('should');
 
 //TODO:
 //replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
