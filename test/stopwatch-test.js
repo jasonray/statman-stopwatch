@@ -93,15 +93,15 @@ describe('stopwatch', function () {
     });
 
     it('with two stopwatches, do independent reads of each', function (done) {
-        var stopwatch1 = new Stopwatch();
-        var stopwatch2 = new Stopwatch();
+        const stopwatch1 = new Stopwatch();
+        const stopwatch2 = new Stopwatch();
 
         stopwatch1.start();
 
         //start first stopwatch, then do a read .3s later
-        var testtimeA = 300;
+        const testtimeA = 300;
         setTimeout(function () {
-            var delta1 = stopwatch1.read();
+            const delta1 = stopwatch1.read();
             verifyDelta(testtimeA, delta1, defaultPrecision);
         }, testtimeA);
 
