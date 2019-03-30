@@ -48,7 +48,7 @@ describe('stopwatch', function () {
     });
 
     it('start and read (100ms)', function (done) {
-        var testtime = 100;
+        const testtime = 100;
 
         var stopwatch = new Stopwatch();
         stopwatch.start();
