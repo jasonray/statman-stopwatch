@@ -50,7 +50,7 @@ describe('stopwatch', function () {
     it('start and read (100ms)', function (done) {
         const testtime = 100;
 
-        var stopwatch = new Stopwatch();
+        const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             var delta = stopwatch.read();
