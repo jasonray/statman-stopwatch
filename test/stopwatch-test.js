@@ -118,15 +118,15 @@ describe('stopwatch', function () {
     });
 
     it('start, stop, and read should return the time at stop', function (done) {
-        var testtime = 100;
+        const testtime = 100;
 
-        var stopwatch = new Stopwatch();
+        const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
             stopwatch.stop();
 
             setTimeout(function () {
-                var delta = stopwatch.read();
+                const delta = stopwatch.read();
                 verifyDelta(testtime, delta, defaultPrecision);
                 done();
             }, 500);
