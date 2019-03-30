@@ -1,5 +1,13 @@
+
+function expensiveOperation(numberOfTimes) {
+	for (var i = 0; i < numberOfTimes; i++) {
+	}
+};
+
 // var Stopwatch = require('statman-stopwatch');
 var Stopwatch = require('../lib/Stopwatch');
+
+
 
 console.log('starting sample project');
 
@@ -28,9 +36,3 @@ var sw4 = new Stopwatch(true);
 console.log('starting fourth expensive operation');
 expensiveOperation(1000000);
 console.log('expensive operation time #4: ', sw4.stop());
-
-
-function expensiveOperation(numberOfTimes) {
-	for (var i = 0; i < numberOfTimes; i++) { 		
-	}
-};
