@@ -72,9 +72,9 @@ describe('stopwatch', function () {
     });
 
     it('autostart set to true automatically starts stopwatch', function (done) {
-        var testtime = 10;
+        const testtime = 10;
 
-        var stopwatch = new Stopwatch(true);
+        const stopwatch = new Stopwatch(true);
         setTimeout(function () {
             var delta = stopwatch.read();
             verifyDelta(testtime, delta, defaultPrecision);
