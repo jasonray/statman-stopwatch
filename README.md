@@ -4,8 +4,8 @@
 
 For example, you may want to determine how long certain potentially expensive activities take in your code (such as calling to an external web services or fetching a dataset from a database).  Few lines of code will let you capture that info.  There are much more elegant solutions - this is a simple roll-your-own approach.
 
-# Install it!
-## Option 1: access directly
+## Install it!
+### Option 1: access directly
 Install using npm:
 ```
 npm install statman-stopwatch
@@ -17,7 +17,7 @@ var Stopwatch = require('statman-stopwatch');
 var stopwatch = new Stopwatch();
 ```
 
-## Option 2: access from `statman`
+### Option 2: access from `statman`
 Install using npm:
 ```
 npm install statman
@@ -29,40 +29,40 @@ var statman = require('statman');
 var stopwatch = new statman.Stopwatch();
 ```
 
-# Use it!
-## Constructor
-* `Stopwatch()` => create instance of a stopwatch
-* `Stopwatch(true)` => create instance of stopwatch, and have it autostart
+## Use it!
+### Constructor
+-   `Stopwatch()` => create instance of a stopwatch
+-   `Stopwatch(true)` => create instance of stopwatch, and have it autostart
 
-## start
-* `start()` => starts the stopwatch, let the timing begin!
+### start
+-   `start()` => starts the stopwatch, let the timing begin!
 
-## read
-* `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
-* `time()` => alias for `read()`
+### read
+-   `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
+-   `time()` => alias for `read()`
 
-## stop
-* `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
+### stop
+-   `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
 
-## split
-* `split()` => temp stops the stopwatch, allow read() to return time based on when split occurs.  Use `unsplit()` to resume the stopwatch
+### split
+-   `split()` => temp stops the stopwatch, allow read() to return time based on when split occurs.  Use `unsplit()` to resume the stopwatch
 
-## unsplit
-* `unsplit()` => use follow a `split()` to resume the stopwatch
+### unsplit
+-   `unsplit()` => use follow a `split()` to resume the stopwatch
 
-## splitTime
-* `splitTime` => while the stopwatch is split, returns the time as of the split
+### splitTime
+-   `splitTime` => while the stopwatch is split, returns the time as of the split
 
-## reset
-* `reset()` => restores the stopwatch back to init state and clears start and stop times
+### reset
+-   `reset()` => restores the stopwatch back to init state and clears start and stop times
 
-## Example
+### Example
 
 There are some examples in `example/example.js`
 
-### Basic usage
+#### Basic usage
 Create a new stopwatch, `start()` it, and later `read()` it
-```
+``` javascript
     var Stopwatch = require('statman-stopwatch');
     var sw = new Stopwatch();
     sw.start();
@@ -72,9 +72,9 @@ Create a new stopwatch, `start()` it, and later `read()` it
     var delta = sw.read();
  ```
 
-### Autostart
+#### Autostart
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
-```
+``` javascript
     var Stopwatch = require('statman-stopwatch');
     var sw = new Stopwatch(true);
 
@@ -83,9 +83,9 @@ Create a new stopwatch, `start()` it, and later `read()` it
     var delta = sw.read();
  ```
 
-### Stop
+#### Stop
 Create a new stopwatch, `stop()` it, and later `read()` it
-```
+``` javascript
     var Stopwatch = require('statman-stopwatch');
     var sw = new Stopwatch(true);
 
@@ -99,7 +99,7 @@ Create a new stopwatch, `stop()` it, and later `read()` it
     var delta = sw.read();
  ```
  
-# Build it!
+## Build it!
 - Make sure that you have `node` and `npm` installed
 - Clone source code to you local machine
 - Setup dependencies: `npm install`
