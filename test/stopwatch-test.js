@@ -62,10 +62,10 @@ describe('stopwatch', function () {
     it('start and read (10ms)', function (done) {
         const testtime = 10;
 
-        var stopwatch = new Stopwatch();
+        const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
-            var delta = stopwatch.read();
+            const delta = stopwatch.read();
             verifyDelta(testtime, delta, defaultPrecision);
             done();
         }, testtime);
