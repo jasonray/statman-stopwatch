@@ -36,7 +36,7 @@ describe('stopwatch', function () {
         });
 
         it('w/both name and autostart', function () {
-            var stopwatch = new Stopwatch('metric-name', true);
+            const stopwatch = new Stopwatch('metric-name', true);
             stopwatch.name().should.equal('metric-name');
         });
 
