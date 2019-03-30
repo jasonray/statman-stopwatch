@@ -134,9 +134,9 @@ describe('stopwatch', function () {
     });
 
     it('can restart a stopwatch', function () {
-        var testtime = 100;
+        const testtime = 100;
 
-        var stopwatch = new Stopwatch();
+        const stopwatch = new Stopwatch();
         stopwatch.start();
         stopwatch.stop();
         stopwatch.start();
