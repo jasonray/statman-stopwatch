@@ -1,5 +1,5 @@
 /*jslint node: true */
-"use strict";
+'use strict';
 
 const Stopwatch = require('../lib/Stopwatch');
 const defaultPrecision = 15;
