@@ -104,4 +104,3 @@ Create a new stopwatch, `stop()` it, and later `read()` it
 -   Clone source code to you local machine
 -   Setup dependencies: `npm install`
 -   run tests: `npm test`
- 
