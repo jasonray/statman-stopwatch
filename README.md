@@ -7,24 +7,24 @@ For example, you may want to determine how long certain potentially expensive ac
 ## Install it!
 ### Option 1: access directly
 Install using npm:
-```
+``` bash
 npm install statman-stopwatch
 ```
 
 Reference in your app:
-```
+``` javascript
 var Stopwatch = require('statman-stopwatch');
 var stopwatch = new Stopwatch();
 ```
 
 ### Option 2: access from `statman`
 Install using npm:
-```
+``` bash
 npm install statman
 ```
 
 Reference in your app:
-```
+``` javascript
 var statman = require('statman');
 var stopwatch = new statman.Stopwatch();
 ```
