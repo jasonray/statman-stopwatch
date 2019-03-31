@@ -3,12 +3,10 @@ function expensiveOperation(numberOfTimes) {
 	for (let i = 0; i < numberOfTimes; i++) {
 		//this is where some random calculation would go, but looping is enough to simulate expensive operation
 	}
-};
+}
 
 // const Stopwatch = require('statman-stopwatch');
 const Stopwatch = require('../lib/Stopwatch');
-
-
 
 console.log('starting sample project');
 
