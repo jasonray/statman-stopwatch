@@ -15,8 +15,8 @@ npm install statman-stopwatch
 
 Reference in your app:
 ``` javascript
-var Stopwatch = require('statman-stopwatch');
-var stopwatch = new Stopwatch();
+const Stopwatch = require('statman-stopwatch');
+const stopwatch = new Stopwatch();
 ```
 
 ### Option 2: access from `statman`
@@ -27,8 +27,8 @@ npm install statman
 
 Reference in your app:
 ``` javascript
-var statman = require('statman');
-var stopwatch = new statman.Stopwatch();
+const statman = require('statman');
+const stopwatch = new statman.Stopwatch();
 ```
 
 ## Use it!
@@ -65,31 +65,31 @@ There are some examples in `example/example.js`
 #### Basic usage
 Create a new stopwatch, `start()` it, and later `read()` it
 ``` javascript
-    var Stopwatch = require('statman-stopwatch');
-    var sw = new Stopwatch();
+    const Stopwatch = require('statman-stopwatch');
+    const sw = new Stopwatch();
     sw.start();
 
     // do some activity
 
-    var delta = sw.read();
+    const delta = sw.read();
  ```
 
 #### Autostart
 `start()` is too hard.  Create a new stopwatch with autostart=true, and later `read()` it
 ``` javascript
-    var Stopwatch = require('statman-stopwatch');
-    var sw = new Stopwatch(true);
+    const Stopwatch = require('statman-stopwatch');
+    const sw = new Stopwatch(true);
 
     // do some activity
 
-    var delta = sw.read();
+    const delta = sw.read();
  ```
 
 #### Stop
 Create a new stopwatch, `stop()` it, and later `read()` it
 ``` javascript
-    var Stopwatch = require('statman-stopwatch');
-    var sw = new Stopwatch(true);
+    const Stopwatch = require('statman-stopwatch');
+    const sw = new Stopwatch(true);
 
     // do some activity
 
@@ -98,7 +98,7 @@ Create a new stopwatch, `stop()` it, and later `read()` it
     // do some more activity
 
     //returns time associated with when stop() occurred
-    var delta = sw.read();
+    const delta = sw.read();
  ```
  
 ## Build it!
