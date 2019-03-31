@@ -8,8 +8,6 @@ function expensiveOperation(numberOfTimes) {
 // const Stopwatch = require('statman-stopwatch');
 const Stopwatch = require('../lib/Stopwatch');
 
-
-
 console.log('starting sample project');
 
 // example #1, initialize the sw, start it, do an expensive operation, read sw
