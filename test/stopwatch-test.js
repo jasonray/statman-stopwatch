@@ -187,18 +187,43 @@ describe('stopwatch', function () {
 
     describe('start time delta', function() {        
         it('start at specific time delta and read (100ms)', function (done) {
-            const starttime = 500;
+            const initialStartTimeDelta = 500;
             const testtime = 100;
 
             const stopwatch = new Stopwatch();
-            stopwatch.setStartTimeDelta(500);
+            stopwatch.setStartTimeDelta(initialStartTimeDelta);
             stopwatch.start();
             setTimeout(function () {
                 const delta = stopwatch.read();
-                verifyDelta(testtime + starttime, delta, defaultPrecision);
+                verifyDelta(testtime + initialStartTimeDelta, delta, defaultPrecision);
                 done();
             }, testtime);
         });
+
+        it('autostart set to true automatically starts stopwatch', function (done) {
+            const initialStartTimeDelta = 500;
+            const testtime = 10;
+
+            const stopwatch = new Stopwatch(true);
+            stopwatch.setStartTimeDelta(initialStartTimeDelta);
+            setTimeout(function () {
+                const delta = stopwatch.read();
+                verifyDelta(testtime + initialStartTimeDelta, delta, defaultPrecision);
+                done();
+            }, testtime);
+        });
+
+        it('autostart set to false does NOT automatically start stopwatch', function (done) {
+            const initialStartTimeDelta = 500;
+            const testtime = 10;
+
+            const stopwatch = new Stopwatch(false);
+            stopwatch.setStartTimeDelta(initialStartTimeDelta);
+            setTimeout(function () {
+                stopwatch.read().should.be.NaN();
+                done();
+            }, testtime);
+        });        
     });
 
     describe('toString()', function () {
