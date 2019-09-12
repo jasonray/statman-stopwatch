@@ -186,7 +186,7 @@ describe('stopwatch', function () {
     });
 
     describe('start time delta', function() {        
-        it('start at specific time and read (100ms)', function (done) {
+        it('start at specific time delta and read (100ms)', function (done) {
             const starttime = 500;
             const testtime = 100;
 
