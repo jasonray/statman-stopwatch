@@ -185,18 +185,20 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('start at specific time and read (100ms)', function (done) {
-        const starttime = 500;
-        const testtime = 100;
+    describe('start time delta', function() {        
+        it('start at specific time and read (100ms)', function (done) {
+            const starttime = 500;
+            const testtime = 100;
 
-        const stopwatch = new Stopwatch();
-        stopwatch.setStartTime(500);
-        stopwatch.start();
-        setTimeout(function () {
-            const delta = stopwatch.read();
-            verifyDelta(testtime + starttime, delta, defaultPrecision);
-            done();
-        }, testtime);
+            const stopwatch = new Stopwatch();
+            stopwatch.setStartTimeDelta(500);
+            stopwatch.start();
+            setTimeout(function () {
+                const delta = stopwatch.read();
+                verifyDelta(testtime + starttime, delta, defaultPrecision);
+                done();
+            }, testtime);
+        });
     });
 
     describe('toString()', function () {
