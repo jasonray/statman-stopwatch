@@ -200,7 +200,7 @@ describe('stopwatch', function () {
             }, testtime);
         });
 
-        it('cannot change autostart on running stopwatch', function (done) {
+        it('cannot change delta on running stopwatch', function (done) {
             const initialStartTimeDelta = 500;
             const testtime = 100;
 
