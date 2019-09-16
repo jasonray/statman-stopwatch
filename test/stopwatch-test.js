@@ -201,11 +201,11 @@ describe('stopwatch', function () {
         });
 
         it('autostart set to true automatically starts stopwatch', function (done) {
+            const stopwatchName = 'x';
             const initialStartTimeDelta = 500;
             const testtime = 10;
 
-            const stopwatch = new Stopwatch(true);
-            stopwatch.setStartTimeDelta(initialStartTimeDelta);
+            const stopwatch = new Stopwatch(stopwatchName, true, initialStartTimeDelta);
             setTimeout(function () {
                 const delta = stopwatch.read();
                 verifyDelta(testtime + initialStartTimeDelta, delta, defaultPrecision);
