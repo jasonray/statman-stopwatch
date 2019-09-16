@@ -35,6 +35,7 @@ const stopwatch = new statman.Stopwatch();
 ### Constructor
 -   `Stopwatch()` => create instance of a stopwatch
 -   `Stopwatch(true)` => create instance of stopwatch, and have it autostart
+-   `Stopwatch(name, autostart, delta) => create instance of stopwatch, with name, specify if to autostart, and supply an automatic delta (see setStartTimeDelta)
 
 ### start
 -   `start()` => starts the stopwatch, let the timing begin!
@@ -57,6 +58,9 @@ const stopwatch = new statman.Stopwatch();
 
 ### reset
 -   `reset()` => restores the stopwatch back to init state and clears start and stop times
+
+### setStartTimeDelta
+-   `setStartTimeDelta(number)` => provide an elapsed time (in milliseconds) at which to start the stopwatch
 
 ### Example
 
@@ -99,6 +103,20 @@ Create a new stopwatch, `stop()` it, and later `read()` it
 
     //returns time associated with when stop() occurred
     const delta = sw.read();
+ ```
+
+#### Delta
+Create a new stopwatch, `start()` it, and later `read()` it
+``` javascript
+    const Stopwatch = require('statman-stopwatch');
+    const sw = new Stopwatch();
+    sw.setStartTimeDelta(5000);
+    sw.start();
+
+    // do some activity which takes 500
+
+    const delta = sw.read();
+    // delta will be 5500 (the initial 5000ms set in setStartTimeDelta plus the elapsed 500ms)
  ```
  
 ## Build it!
