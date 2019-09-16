@@ -185,6 +185,65 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
+    describe('start time delta', function() {        
+        it('start at specific time delta and read (100ms)', function (done) {
+            const initialStartTimeDelta = 500;
+            const testtime = 100;
+
+            const stopwatch = new Stopwatch();
+            stopwatch.setStartTimeDelta(initialStartTimeDelta);
+            stopwatch.start();
+            setTimeout(function () {
+                const delta = stopwatch.read();
+                verifyDelta(testtime + initialStartTimeDelta, delta, defaultPrecision);
+                done();
+            }, testtime);
+        });
+
+        it('cannot change delta on running stopwatch', function (done) {
+            const initialStartTimeDelta = 500;
+            const testtime = 100;
+
+            const stopwatch = new Stopwatch();
+            stopwatch.start();
+
+            setTimeout(function () {
+                assert.throws(
+                    function () {
+                        stopwatch.setStartTimeDelta(initialStartTimeDelta);
+                        done();
+                    },
+                    Error);                
+                done();
+            }, testtime);
+        });
+
+        it('autostart set to true automatically starts stopwatch', function (done) {
+            const stopwatchName = 'x';
+            const initialStartTimeDelta = 500;
+            const testtime = 10;
+
+            const stopwatch = new Stopwatch(stopwatchName, true, initialStartTimeDelta);
+            setTimeout(function () {
+                const delta = stopwatch.read();
+                verifyDelta(testtime + initialStartTimeDelta, delta, defaultPrecision);
+                done();
+            }, testtime);
+        });
+
+        it('autostart set to false does NOT automatically start stopwatch', function (done) {
+            const initialStartTimeDelta = 500;
+            const testtime = 10;
+
+            const stopwatch = new Stopwatch(false);
+            stopwatch.setStartTimeDelta(initialStartTimeDelta);
+            setTimeout(function () {
+                stopwatch.read().should.be.NaN();
+                done();
+            }, testtime);
+        });        
+    });
+
     describe('toString()', function () {
         it('idle', function () {
             const stopwatch = new Stopwatch('sw');
