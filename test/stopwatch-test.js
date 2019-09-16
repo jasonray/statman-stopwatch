@@ -200,6 +200,24 @@ describe('stopwatch', function () {
             }, testtime);
         });
 
+        it('cannot change autostart on running stopwatch', function (done) {
+            const initialStartTimeDelta = 500;
+            const testtime = 100;
+
+            const stopwatch = new Stopwatch();
+            stopwatch.start();
+
+            setTimeout(function () {
+                assert.throws(
+                    function () {
+                        stopwatch.setStartTimeDelta(initialStartTimeDelta);
+                        done();
+                    },
+                    Error);                
+                done();
+            }, testtime);
+        });
+
         it('autostart set to true automatically starts stopwatch', function (done) {
             const stopwatchName = 'x';
             const initialStartTimeDelta = 500;
