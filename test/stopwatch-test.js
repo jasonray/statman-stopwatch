@@ -280,6 +280,17 @@ describe('stopwatch', function () {
         }, testtime);
     }); 
 
+    it('read using time() precision with 2', function (done) {
+        const testtime = 1000.123;
+
+        const stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            const delta = stopwatch.time(2);
+            delta.should.match(/^\d{4}\.\d{2}$/);
+            done();
+        }, testtime);
+    }); 
     describe('toString()', function () {
         it('idle', function () {
             const stopwatch = new Stopwatch('sw');
