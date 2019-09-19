@@ -244,6 +244,53 @@ describe('stopwatch', function () {
         });        
     });
 
+    it('read precision with 0', function (done) {
+        const testtime = 1000.123;
+
+        const stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            const delta = stopwatch.read(0);
+            delta.should.match(/^\d{4}$/);
+            done();
+        }, testtime);
+    });    
+
+    it('read precision with 1', function (done) {
+        const testtime = 1000.123;
+
+        const stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            const delta = stopwatch.read(1);
+            delta.should.match(/^\d{4}\.\d$/);
+            done();
+        }, testtime);
+    }); 
+
+    it('read precision with 2', function (done) {
+        const testtime = 1000.123;
+
+        const stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            const delta = stopwatch.read(2);
+            delta.should.match(/^\d{4}\.\d{2}$/);
+            done();
+        }, testtime);
+    }); 
+
+    it('read using time() precision with 2', function (done) {
+        const testtime = 1000.123;
+
+        const stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            const delta = stopwatch.time(2);
+            delta.should.match(/^\d{4}\.\d{2}$/);
+            done();
+        }, testtime);
+    }); 
     describe('toString()', function () {
         it('idle', function () {
             const stopwatch = new Stopwatch('sw');
