@@ -41,8 +41,8 @@ const stopwatch = new statman.Stopwatch();
 -   `start()` => starts the stopwatch, let the timing begin!
 
 ### read
--   `read()` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds
--   `time()` => alias for `read()`
+-   `read(precision)` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds.  If `precision` is provided, `read()` will round to the numbe of decimals places based on precision.
+-   `time(precision)` => alias for `read()`
 
 ### stop
 -   `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
