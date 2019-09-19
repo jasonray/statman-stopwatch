@@ -250,7 +250,7 @@ describe('stopwatch', function () {
         const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
-            const delta = stopwatch.read().toFixed(0);
+            const delta = stopwatch.read(0);
             delta.should.match(/^\d{4}$/);
             done();
         }, testtime);
@@ -262,7 +262,7 @@ describe('stopwatch', function () {
         const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
-            const delta = stopwatch.read().toFixed(1);
+            const delta = stopwatch.read(1);
             delta.should.match(/^\d{4}\.\d$/);
             done();
         }, testtime);
@@ -274,7 +274,7 @@ describe('stopwatch', function () {
         const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
-            const delta = stopwatch.read().toFixed(2);
+            const delta = stopwatch.read(2);
             delta.should.match(/^\d{4}\.\d{2}$/);
             done();
         }, testtime);
