@@ -18,7 +18,7 @@
   "dependencies": {
     "lodash.isboolean": "^3.0.3",
     "lodash.isempty": "^4.4.0",
-    "performance-now": "^2.0.0",
+    "performance-now": "^2.1.0",
     "string-template": "^1.0.0",
     "uuid": "^8.3.2"
   },
