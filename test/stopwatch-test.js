@@ -22,6 +22,13 @@ describe('stopwatch', function () {
         it('w/no params', function () {
             const stopwatch = new Stopwatch();
             should.exist(stopwatch);
+            stopwatch.name().should.not.equal(null)
+        });
+
+        it('w/empty as first param', function () {
+            const stopwatch = new Stopwatch('');
+            stopwatch.name().should.not.equal(null)
+            stopwatch.name().should.not.equal('')
         });
 
         it('w/name as first param', function () {
@@ -57,6 +64,7 @@ describe('stopwatch', function () {
             verifyDelta(testtime, delta, defaultPrecision);
             done();
         }, testtime);
+        stopwatch.prettyPrint()
     });
 
     it('start and read (10ms)', function (done) {
