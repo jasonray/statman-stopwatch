@@ -8,7 +8,7 @@
 For example, you may want to determine how long certain potentially expensive activities take in your code (such as calling to an external web services or fetching a dataset from a database).  Few lines of code will let you capture that info.  There are much more elegant solutions - this is a simple roll-your-own approach.
 
 ## Install it!
-### Option 1: access directly
+### Option 1: access directly (recommended)
 Install using npm:
 ``` bash
 npm install statman-stopwatch
@@ -20,7 +20,7 @@ const Stopwatch = require('statman-stopwatch');
 const stopwatch = new Stopwatch();
 ```
 
-### Option 2: access from `statman`
+### Option 2: access from `statman` (deprecated)
 Install using npm:
 ``` bash
 npm install statman
