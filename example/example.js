@@ -6,7 +6,7 @@ function expensiveOperation(numberOfTimes) {
 }
 
 // const Stopwatch = require('statman-stopwatch');
-const Stopwatch = require('../lib/Stopwatch');
+const Stopwatch = require("../lib/Stopwatch");
 
 console.log("starting sample project");
 
