@@ -35,3 +35,18 @@ const sw4 = new Stopwatch(true);
 console.log("starting fourth expensive operation");
 expensiveOperation(1000000);
 console.log("expensive operation time #4: ", sw4.stop());
+
+// example #5, use prettyPrint
+console.log("begin example of prettyPrint scenario");
+const sw5 = new Stopwatch("timer1");
+sw5.prettyPrint();
+console.log("start timer");
+sw5.start();
+sw5.prettyPrint();
+console.log("do stuff");
+expensiveOperation(1000000);
+sw5.prettyPrint();
+console.log("all done");
+sw5.stop();
+sw5.prettyPrint();
+console.log("complete");
