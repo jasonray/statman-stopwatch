@@ -1,60 +1,60 @@
 /*jslint node: true */
-'use strict';
+"use strict";
 
-const Stopwatch = require('../lib/Stopwatch');
+const Stopwatch = require("../lib/Stopwatch");
 const defaultPrecision = 15;
-const assert = require('assert');
-const should = require('should');
+const assert = require("assert");
+const should = require("should");
 
 //TODO:
 //replace with: statman.TestHelper.assertCloseEnough(testtime, delta, defaultPrecision);
 function verifyDelta(expected, actual, acceptedconstiance) {
     const lowerThreshold = expected - acceptedconstiance;
     const upperThreshold = expected + acceptedconstiance;
-    const message = 'Expected ' + expected + ' ± ' + acceptedconstiance + ', was ' + actual + '.';
+    const message = "Expected " + expected + " ± " + acceptedconstiance + ", was " + actual + ".";
     assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
 }
 
-describe('stopwatch', function () {
+describe("stopwatch", function () {
     this.timeout(5000);
 
-    describe('constructor', function () {
-        it('w/no params', function () {
+    describe("constructor", function () {
+        it("w/no params", function () {
             const stopwatch = new Stopwatch();
             should.exist(stopwatch);
             stopwatch.name().should.not.equal(null)
         });
 
-        it('w/empty as first param', function () {
-            const stopwatch = new Stopwatch('');
+        it("w/empty as first param", function () {
+            const stopwatch = new Stopwatch("");
             stopwatch.name().should.not.equal(null)
-            stopwatch.name().should.not.equal('')
+            stopwatch.name().should.not.equal("")
         });
 
-        it('w/name as first param', function () {
-            const stopwatch = new Stopwatch('metric-name');
-            stopwatch.name().should.equal('metric-name');
+        it("w/name as first param", function () {
+            const stopwatch = new Stopwatch("metric-name");
+            stopwatch.name().should.equal("metric-name");
         });
 
-        it('w/autostart as first param', function () {
+        it("w/autostart as first param", function () {
             const stopwatch = new Stopwatch(true);
             should.exist(stopwatch.name());
             stopwatch.name().should.not.equal(true);
         });
 
-        it('w/both name and autostart', function () {
-            const stopwatch = new Stopwatch('metric-name', true);
-            stopwatch.name().should.equal('metric-name');
+        it("w/both name and autostart", function () {
+            const stopwatch = new Stopwatch("metric-name", true);
+            stopwatch.name().should.equal("metric-name");
         });
 
-        it('autocreated names are not constant', function () {
+        it("autocreated names are not constant", function () {
             const stopwatch1 = new Stopwatch(true);
             const stopwatch2 = new Stopwatch(true);
             stopwatch1.name().should.not.equal(stopwatch2.name());
         });
     });
 
-    it('start and read (100ms)', function (done) {
+    it("start and read (100ms)", function (done) {
         const testtime = 100;
 
         const stopwatch = new Stopwatch();
@@ -67,7 +67,7 @@ describe('stopwatch', function () {
         stopwatch.prettyPrint()
     });
 
-    it('start and read (10ms)', function (done) {
+    it("start and read (10ms)", function (done) {
         const testtime = 10;
 
         const stopwatch = new Stopwatch();
@@ -79,7 +79,7 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('autostart set to true automatically starts stopwatch', function (done) {
+    it("autostart set to true automatically starts stopwatch", function (done) {
         const testtime = 10;
 
         const stopwatch = new Stopwatch(true);
@@ -90,7 +90,7 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('autostart set to false does NOT automatically start stopwatch', function (done) {
+    it("autostart set to false does NOT automatically start stopwatch", function (done) {
         const testtime = 10;
 
         const stopwatch = new Stopwatch(false);
@@ -100,7 +100,7 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('with two stopwatches, do independent reads of each', function (done) {
+    it("with two stopwatches, do independent reads of each", function (done) {
         const stopwatch1 = new Stopwatch();
         const stopwatch2 = new Stopwatch();
 
@@ -125,7 +125,7 @@ describe('stopwatch', function () {
         }, 100);
     });
 
-    it('start, stop, and read should return the time at stop', function (done) {
+    it("start, stop, and read should return the time at stop", function (done) {
         const testtime = 100;
 
         const stopwatch = new Stopwatch();
@@ -141,7 +141,7 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    it('can restart a stopwatch', function () {
+    it("can restart a stopwatch", function () {
         const testtime = 100;
 
         const stopwatch = new Stopwatch();
@@ -150,20 +150,20 @@ describe('stopwatch', function () {
         stopwatch.start();
     });
 
-    it('performing read without start() or stop() returns NaN', function (done) {
+    it("performing read without start() or stop() returns NaN", function (done) {
         const stopwatch = new Stopwatch();
         assert.ok(isNaN(stopwatch.read()));
         done();
     });
 
-    it('performing read without start() returns NaN', function (done) {
+    it("performing read without start() returns NaN", function (done) {
         const stopwatch = new Stopwatch();
         stopwatch.stop();
         assert.ok(isNaN(stopwatch.read()));
         done();
     });
 
-    it('executing stop twice should return time at second stop', function (done) {
+    it("executing stop twice should return time at second stop", function (done) {
         //start(), wait .1s, stop(), wait .2s, stop(), wait .5s, read(), ensure delta = .3s
         const stopwatch = new Stopwatch();
         stopwatch.start();
@@ -182,7 +182,7 @@ describe('stopwatch', function () {
         }, 100);
     });
 
-    it('ensure that stop() returns time', function (done) {
+    it("ensure that stop() returns time", function (done) {
         const testtime = 100;
         const stopwatch = new Stopwatch();
         stopwatch.start();
@@ -193,8 +193,8 @@ describe('stopwatch', function () {
         }, testtime);
     });
 
-    describe('start time delta', function() {        
-        it('start at specific time delta and read (100ms)', function (done) {
+    describe("start time delta", function() {        
+        it("start at specific time delta and read (100ms)", function (done) {
             const initialStartTimeDelta = 500;
             const testtime = 100;
 
@@ -208,7 +208,7 @@ describe('stopwatch', function () {
             }, testtime);
         });
 
-        it('cannot change delta on running stopwatch', function (done) {
+        it("cannot change delta on running stopwatch", function (done) {
             const initialStartTimeDelta = 500;
             const testtime = 100;
 
@@ -226,8 +226,8 @@ describe('stopwatch', function () {
             }, testtime);
         });
 
-        it('autostart set to true automatically starts stopwatch', function (done) {
-            const stopwatchName = 'x';
+        it("autostart set to true automatically starts stopwatch", function (done) {
+            const stopwatchName = "x";
             const initialStartTimeDelta = 500;
             const testtime = 10;
 
@@ -239,7 +239,7 @@ describe('stopwatch', function () {
             }, testtime);
         });
 
-        it('autostart set to false does NOT automatically start stopwatch', function (done) {
+        it("autostart set to false does NOT automatically start stopwatch", function (done) {
             const initialStartTimeDelta = 500;
             const testtime = 10;
 
@@ -252,7 +252,7 @@ describe('stopwatch', function () {
         });        
     });
 
-    it('read precision with 0', function (done) {
+    it("read precision with 0", function (done) {
         const testtime = 1000.123;
 
         const stopwatch = new Stopwatch();
@@ -264,7 +264,7 @@ describe('stopwatch', function () {
         }, testtime);
     });    
 
-    it('read precision with 1', function (done) {
+    it("read precision with 1", function (done) {
         const testtime = 1000.123;
 
         const stopwatch = new Stopwatch();
@@ -276,7 +276,7 @@ describe('stopwatch', function () {
         }, testtime);
     }); 
 
-    it('read precision with 2', function (done) {
+    it("read precision with 2", function (done) {
         const testtime = 1000.123;
 
         const stopwatch = new Stopwatch();
@@ -288,7 +288,7 @@ describe('stopwatch', function () {
         }, testtime);
     }); 
 
-    it('read using time() precision with 2', function (done) {
+    it("read using time() precision with 2", function (done) {
         const testtime = 1000.123;
 
         const stopwatch = new Stopwatch();
@@ -299,33 +299,33 @@ describe('stopwatch', function () {
             done();
         }, testtime);
     }); 
-    describe('toString()', function () {
-        it('idle', function () {
-            const stopwatch = new Stopwatch('sw');
+    describe("toString()", function () {
+        it("idle", function () {
+            const stopwatch = new Stopwatch("sw");
             //[sw => state:init; value:NaN]
-            stopwatch.toString().should.containEql('state:init');
-            stopwatch.toString().should.containEql('value:');
+            stopwatch.toString().should.containEql("state:init");
+            stopwatch.toString().should.containEql("value:");
         });
-        it('started', function () {
-            const stopwatch = new Stopwatch('sw', true);
+        it("started", function () {
+            const stopwatch = new Stopwatch("sw", true);
             //[sw => state:running; value:0.01]
-            stopwatch.toString().should.containEql('state:running');
-            stopwatch.toString().should.containEql('value:0');
+            stopwatch.toString().should.containEql("state:running");
+            stopwatch.toString().should.containEql("value:0");
         });
-        it('stopped', function () {
-            const stopwatch = new Stopwatch('sw', true);
+        it("stopped", function () {
+            const stopwatch = new Stopwatch("sw", true);
             stopwatch.stop();
             //[sw => state:stopped; value:0.01]
-            stopwatch.toString().should.containEql('state:stopped');
-            stopwatch.toString().should.containEql('value:0');
+            stopwatch.toString().should.containEql("state:stopped");
+            stopwatch.toString().should.containEql("value:0");
         });
     });
 
     // https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/time/StopWatch.html
-    describe('java stopwatch compliance', function () {
-        it('time should equal read on a running stopwatch', function () {
+    describe("java stopwatch compliance", function () {
+        it("time should equal read on a running stopwatch", function () {
             //TODO: list time as alias of read
-            const stopwatch = new Stopwatch('sw');
+            const stopwatch = new Stopwatch("sw");
             stopwatch.start();
 
             const readTime = stopwatch.read();
@@ -333,9 +333,9 @@ describe('stopwatch', function () {
 
             verifyDelta(readTime, time, 10);
         });
-        it('time should equal read on a stopped stopwatch', function (done) {
+        it("time should equal read on a stopped stopwatch", function (done) {
             //TODO: list time as alias of read
-            const stopwatch = new Stopwatch('sw');
+            const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             setTimeout(function () {
                 stopwatch.stop();
@@ -344,42 +344,42 @@ describe('stopwatch', function () {
             }, 10);
 
         });
-        describe('reset', function () {
-            it('resetting a not-started stopwatch should have no effect', function () {
-                const stopwatch = new Stopwatch('sw');
+        describe("reset", function () {
+            it("resetting a not-started stopwatch should have no effect", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.reset();
-                stopwatch.state().should.be.equal('init');
+                stopwatch.state().should.be.equal("init");
             });
-            it('resetting a started stopwatch should bring it back to init', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("resetting a started stopwatch should bring it back to init", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.reset();
                 should.not.exist(stopwatch.startTime);
                 should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal('init');
+                stopwatch.state().should.be.equal("init");
             });
-            it('resetting a stopped stopwatch should bring it back to init', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("resetting a stopped stopwatch should bring it back to init", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.stop();
                 stopwatch.reset();
                 should.not.exist(stopwatch.startTime);
                 should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal('init');
+                stopwatch.state().should.be.equal("init");
             });
-            it('resetting a split stopwatch should bring it back to init', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("resetting a split stopwatch should bring it back to init", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.split();
                 stopwatch.reset();
                 should.not.exist(stopwatch.startTime);
                 should.not.exist(stopwatch.stopTime);
-                stopwatch.state().should.be.equal('init');
+                stopwatch.state().should.be.equal("init");
             });
         });
-        describe('split', function () {
-            it('splitTime() will return the split time', function (done) {
-                const stopwatch = new Stopwatch('sw');
+        describe("split", function () {
+            it("splitTime() will return the split time", function (done) {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
 
                 setTimeout(function () {
@@ -390,8 +390,8 @@ describe('stopwatch', function () {
                     }, 200);
                 }, 100);
             });
-            it('on split, time/read will return the split time', function (done) {
-                const stopwatch = new Stopwatch('sw');
+            it("on split, time/read will return the split time", function (done) {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
 
                 setTimeout(function () {
@@ -403,16 +403,16 @@ describe('stopwatch', function () {
                     }, 200);
                 }, 100);
             });
-            it('cannot call get splitTime on a init stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot call get splitTime on a init stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 assert.throws(
                     function () {
                         stopwatch.splitTime();
                     },
                     Error);
             });
-            it('cannot call get splitTime() on a running stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot call get splitTime() on a running stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 assert.throws(
                     function () {
@@ -420,8 +420,8 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('cannot call get splitTime() on a stopped stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot call get splitTime() on a stopped stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.stop();
                 assert.throws(
@@ -430,8 +430,8 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('cannot call get splitTime() folllowing unsplit', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot call get splitTime() folllowing unsplit", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.split();
                 stopwatch.unsplit();
@@ -441,16 +441,16 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('cannot split a init stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot split a init stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 assert.throws(
                     function () {
                         stopwatch.split();
                     },
                     Error);
             });
-            it('cannot split a split stopwatch (for now, this may change)', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot split a split stopwatch (for now, this may change)", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.split();
                 assert.throws(
@@ -459,8 +459,8 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('cannot split a stopped stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot split a stopped stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.stop();
                 assert.throws(
@@ -469,8 +469,8 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('unsplit, time returns time from start', function (done) {
-                const stopwatch = new Stopwatch('sw');
+            it("unsplit, time returns time from start", function (done) {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 setTimeout(function () {
                     stopwatch.split();
@@ -481,16 +481,16 @@ describe('stopwatch', function () {
                     }, 75);
                 }, 50);
             });
-            it('cannot unsplit a init stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot unsplit a init stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 assert.throws(
                     function () {
                         stopwatch.unsplit();
                     },
                     Error);
             });
-            it('cannot unsplit a running stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot unsplit a running stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 assert.throws(
                     function () {
@@ -498,8 +498,8 @@ describe('stopwatch', function () {
                     },
                     Error);
             });
-            it('cannot unsplit a stopped stopwatch', function () {
-                const stopwatch = new Stopwatch('sw');
+            it("cannot unsplit a stopped stopwatch", function () {
+                const stopwatch = new Stopwatch("sw");
                 stopwatch.start();
                 stopwatch.stop();
                 assert.throws(
@@ -509,13 +509,13 @@ describe('stopwatch', function () {
                     Error);
             });
         });
-        it.skip('suspend/resume', function () {
+        it.skip("suspend/resume", function () {
             // This method suspends the watch until it is resumed. The watch will not include time between the suspend and resume calls in the total time.
             // IllegalStateException - if the StopWatch is not currently running.
             // IllegalStateException - if the StopWatch has not been suspended.
         });
-        it('cannot start a running stopwatch', function () {
-            const stopwatch = new Stopwatch('sw');
+        it("cannot start a running stopwatch", function () {
+            const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             assert.throws(
                 function () {
@@ -523,18 +523,8 @@ describe('stopwatch', function () {
                 },
                 Error);
         });
-        it('cannot start a split stopwatch', function () {
-            const stopwatch = new Stopwatch('sw');
-            stopwatch.start();
-            stopwatch.split();
-            assert.throws(
-                function () {
-                    stopwatch.start();
-                },
-                Error);
-        });
-        it('cannot stop a init stopwatch', function () {
-            const stopwatch = new Stopwatch('sw');
+        it("cannot start a split stopwatch", function () {
+            const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             stopwatch.split();
             assert.throws(
@@ -543,8 +533,18 @@ describe('stopwatch', function () {
                 },
                 Error);
         });
-        it('cannot stop a stopped stopwatch', function () {
-            const stopwatch = new Stopwatch('sw');
+        it("cannot stop a init stopwatch", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            stopwatch.split();
+            assert.throws(
+                function () {
+                    stopwatch.start();
+                },
+                Error);
+        });
+        it("cannot stop a stopped stopwatch", function () {
+            const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             stopwatch.split();
             assert.throws(
