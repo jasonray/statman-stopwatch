@@ -38,7 +38,7 @@ console.log("expensive operation time #4: ", sw4.stop());
 
 // example #5, use prettyPrint
 console.log("begin example of prettyPrint scenario");
-const sw5 = new Stopwatch("timer1");
+const sw5 = new Stopwatch("pretty-print-example");
 sw5.prettyPrint();
 console.log("start timer");
 sw5.start();
@@ -50,3 +50,26 @@ console.log("all done");
 sw5.stop();
 sw5.prettyPrint();
 console.log("complete");
+
+// example #6, suspend/resume
+console.log("begin suspend / resume example");
+const sw6 = new Stopwatch("suspend/resume-timer-example");
+const sw7 = new Stopwatch("total-time-example");
+console.log("start timer");
+sw6.start();
+sw7.start();
+console.log("do stuff");
+expensiveOperation(1000000);
+sw6.suspend();
+console.log("doing some stuff that I don't want to include in my timings");
+expensiveOperation(2000000);
+sw6.resume();
+console.log("do more stuff");
+expensiveOperation(1000000);
+console.log("all done");
+sw6.stop();
+sw7.stop();
+console.log("complete");
+console.log("time #6: ", sw6.read());
+console.log("time #7: ", sw7.read());
+sw6.prettyPrint();
