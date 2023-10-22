@@ -354,7 +354,25 @@ describe("stopwatch", function () {
                 }, testtime);    
             }, testtime);    
         });        
-        it.skip("read 2x suspended stopwatch returns proper time", function () {
+        it("read (return) 2x suspended stopwatch returns proper time", function (done) {
+            const testtime = 200;
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            setTimeout(function () {
+                stopwatch.suspend();
+                setTimeout(function () {
+                    stopwatch.resume();
+                    setTimeout(function () {
+                        stopwatch.suspend();
+                        setTimeout(function () {
+                            const expectedDelta = testtime * 2;
+                            const delta = stopwatch.read();
+                            verifyDelta(expectedDelta, delta, defaultPrecision);
+                            done();
+                        }, testtime);    
+                    }, testtime);    
+                }, testtime);    
+            }, testtime);    
         });
         it("state of resumed stopwatch", function () {
             const stopwatch = new Stopwatch();
