@@ -321,6 +321,54 @@ describe("stopwatch", function () {
         });
     });
 
+    describe("_verifyState()", function () {
+        it("verify single state, valid", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            stopwatch._verifyState([ stopwatch.STATES.RUNNING ])
+        });
+        it("verify multiple state, valid", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            stopwatch._verifyState([ stopwatch.STATES.INIT , stopwatch.STATES.RUNNING ])
+        });
+        it("verify empty list", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            assert.throws(
+                function () {
+                    stopwatch._verifyState([  ])
+                },
+                Error);
+        });
+        it("verify single state, invalid", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            assert.throws(
+                function () {
+                    stopwatch._verifyState([ stopwatch.STATES.INIT ])
+                },
+                Error);
+        });
+        it("verify multiple state, invalid", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            assert.throws(
+                function () {
+                    stopwatch._verifyState([ stopwatch.STATES.INIT, stopwatch.STATES.STOPPED ])
+                },
+                Error);
+        });
+        it("verify single state, invalid, custom error message", function () {
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            assert.throws(
+                function () {
+                    stopwatch._verifyState([ stopwatch.STATES.INIT ], "Can take x action unless in state y")
+                },
+                Error);
+        });
+    });
     // https://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/time/StopWatch.html
     describe("java stopwatch compliance", function () {
         it("time should equal read on a running stopwatch", function () {
