@@ -309,7 +309,13 @@ describe("stopwatch", function () {
                 },
                 Error);
         });
-        it.skip("unable to resume a new stopwatch", function () {
+        it("unable to resume a new stopwatch", function () {
+            const stopwatch = new Stopwatch();
+            assert.throws(
+                function () {
+                    stopwatch.resume();
+                },
+                Error);
         });
         it.skip("state of suspended stopwatch", function () {
         });
