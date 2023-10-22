@@ -15,6 +15,10 @@ function verifyDelta(expected, actual, acceptedconstiance) {
     assert.ok((actual >= lowerThreshold) && (actual <= upperThreshold), message);
 }
 
+function verifyIsNull(value) {
+    (value === null).should.be.true;
+}
+
 describe("stopwatch", function () {
     this.timeout(5000);
 
@@ -95,7 +99,7 @@ describe("stopwatch", function () {
 
         const stopwatch = new Stopwatch(false);
         setTimeout(function () {
-            stopwatch.read().should.be.NaN();
+            verifyIsNull(stopwatch.read());
             done();
         }, testtime);
     });
@@ -152,14 +156,14 @@ describe("stopwatch", function () {
 
     it("performing read without start() or stop() returns NaN", function (done) {
         const stopwatch = new Stopwatch();
-        assert.ok(isNaN(stopwatch.read()));
+        verifyIsNull(stopwatch.read());
         done();
     });
 
     it("performing read without start() returns NaN", function (done) {
         const stopwatch = new Stopwatch();
         stopwatch.stop();
-        assert.ok(isNaN(stopwatch.read()));
+        verifyIsNull(stopwatch.read());
         done();
     });
 
@@ -246,7 +250,7 @@ describe("stopwatch", function () {
             const stopwatch = new Stopwatch(false);
             stopwatch.setStartTimeDelta(initialStartTimeDelta);
             setTimeout(function () {
-                stopwatch.read().should.be.NaN();
+                verifyIsNull(stopwatch.read());
                 done();
             }, testtime);
         });
