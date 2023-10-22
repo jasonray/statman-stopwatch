@@ -328,7 +328,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             stopwatch.suspend();
             stopwatch.start();
-            stopwatch.suspend()
+            stopwatch.suspend();
             stopwatch.state().should.be.equal("stopped");
         });
         it("read (return) suspended stopwatch returns proper time (start=>suspend)", function (done) {
