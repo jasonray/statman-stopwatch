@@ -367,25 +367,6 @@ describe("stopwatch", function () {
                 }, testtime);    
             }, testtime);      
         });
-        it.skip("start, suspend, start, stop returns total time", function () {
-        });
-        it.skip("start, suspend, resume, read returns last segment", function () {
-            const testtime = 100;
-            const stopwatch = new Stopwatch("sw");
-            stopwatch.start();
-            setTimeout(function () {
-                stopwatch.stop();
-                setTimeout(function () {
-                    stopwatch.resume();
-                    setTimeout(function () {
-                        const expectedDelta = testtime;
-                        const delta = stopwatch.read();
-                        verifyDelta(expectedDelta, delta, defaultPrecision);
-                        done();
-                    }, testtime);    
-                }, testtime);    
-            }, testtime);    
-        });
     });
 
     describe("toString()", function () {
