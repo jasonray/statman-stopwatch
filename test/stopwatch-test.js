@@ -345,7 +345,22 @@ describe("stopwatch", function () {
         });
         it.skip("state of resumed stopwatch", function () {
         });
-        it.skip("read resumed stopwatch returns total time", function () {
+        it("read resumed stopwatch returns total time", function (done) {
+            const testtime = 100;
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            setTimeout(function () {
+                stopwatch.suspend();
+                setTimeout(function () {
+                    stopwatch.resume();
+                    setTimeout(function () {
+                        const expectedDelta = testtime * 2;
+                        const delta = stopwatch.read();
+                        verifyDelta(testtime, delta, defaultPrecision);
+                        done();
+                    }, testtime);    
+                }, testtime);    
+            }, testtime);      
         });
         it.skip("start, suspend, start, stop returns total time", function () {
         });
