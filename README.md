@@ -119,6 +119,24 @@ Create a new stopwatch, `start()` it, and later `read()` it
     const delta = sw.read();
     // delta will be 5500 (the initial 5000ms set in setStartTimeDelta plus the elapsed 500ms)
  ```
+
+ #### Suspend/Resume
+There are times where you may want to exclude certain events from the stopwatch, so you can `suspend` (pause) the stopwatch, then `resume` after the excluded event is complete.
+Create a new stopwatch, `start()` it, and later `read()` it
+``` javascript
+    const Stopwatch = require('statman-stopwatch');
+    const sw = new Stopwatch();
+    sw.start();
+
+    // do some activity
+
+
+    sw.suspend();
+    //do some activity that should not be included in the timings
+    sw.resume();
+
+    let delta = sw.stop();
+ ```
  
 ## Build it!
 -   Make sure that you have `node` and `npm` installed
