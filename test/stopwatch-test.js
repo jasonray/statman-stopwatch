@@ -331,7 +331,7 @@ describe("stopwatch", function () {
             stopwatch.suspend()
             stopwatch.state().should.be.equal("stopped");
         });
-        it("read suspended stopwatch returns proper time (start=>suspend)", function (done) {
+        it("read (return) suspended stopwatch returns proper time (start=>suspend)", function (done) {
             const testtime = 100;
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
@@ -341,6 +341,19 @@ describe("stopwatch", function () {
                 done();
             }, testtime);    
         });
+        it("read suspended stopwatch returns proper time (start=>suspend)", function (done) {
+            const testtime = 200;
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            setTimeout(function () {
+                stopwatch.suspend();
+                setTimeout(function () {
+                    const delta = stopwatch.read();
+                    verifyDelta(testtime, delta, defaultPrecision);
+                    done();
+                }, testtime);    
+            }, testtime);    
+        });        
         it.skip("read 2x suspended stopwatch returns proper time", function () {
         });
         it("state of resumed stopwatch", function () {
