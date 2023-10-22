@@ -418,7 +418,8 @@ describe("stopwatch", function () {
                     }, testtime);
                 }, testtime);
             }, testtime);
-        });    });
+        });    
+    });
 
     describe("toString()", function () {
         it("idle", function () {
