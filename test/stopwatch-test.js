@@ -481,7 +481,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([stopwatch.STATES.INIT], "Can take x action unless in state y")
+                    stopwatch._verifyState([stopwatch.STATES.INIT], "Can take x action unless in state y");
                 },
                 Error);
         });
