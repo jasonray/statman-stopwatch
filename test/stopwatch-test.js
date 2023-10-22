@@ -320,7 +320,7 @@ describe("stopwatch", function () {
         it("state of suspended stopwatch", function () {
             const stopwatch = new Stopwatch();
             stopwatch.start();
-            stopwatch.suspend()
+            stopwatch.suspend();
             stopwatch.state().should.be.equal("stopped");
         });
         it("state of 2x suspended stopwatch", function () {
