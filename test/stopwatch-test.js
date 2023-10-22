@@ -197,6 +197,34 @@ describe("stopwatch", function () {
         }, testtime);
     });
 
+    it("manual restart and read", function (done) {
+        const testtime = 200;
+        const stopwatch = new Stopwatch("sw");
+        stopwatch.start();
+        setTimeout(function () {
+            stopwatch.stop();
+            stopwatch.start();
+            setTimeout(function () {
+                const delta = stopwatch.read();
+                verifyDelta(testtime, delta, defaultPrecision);
+                done();
+            }, testtime);
+        }, testtime);
+    });
+    it("restart() and read", function (done) {
+        const testtime = 200;
+        const stopwatch = new Stopwatch("sw");
+        stopwatch.start();
+        setTimeout(function () {
+            stopwatch.restart();
+            setTimeout(function () {
+                const delta = stopwatch.read();
+                verifyDelta(testtime, delta, defaultPrecision);
+                done();
+            }, testtime);
+        }, testtime);
+    });
+    
     describe("start time delta", function () {
         it("start at specific time delta and read (100ms)", function (done) {
             const initialStartTimeDelta = 500;
