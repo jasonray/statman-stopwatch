@@ -326,7 +326,7 @@ describe("stopwatch", function () {
         it("state of 2x suspended stopwatch", function () {
             const stopwatch = new Stopwatch();
             stopwatch.start();
-            stopwatch.suspend()
+            stopwatch.suspend();
             stopwatch.start();
             stopwatch.suspend()
             stopwatch.state().should.be.equal("stopped");
