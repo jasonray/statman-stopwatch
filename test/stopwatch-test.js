@@ -472,7 +472,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.STOPPED])
+                    stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.STOPPED]);
                 },
                 Error);
         });
