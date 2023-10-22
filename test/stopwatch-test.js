@@ -224,7 +224,7 @@ describe("stopwatch", function () {
             }, testtime);
         }, testtime);
     });
-    
+
     describe("start time delta", function () {
         it("start at specific time delta and read (100ms)", function (done) {
             const initialStartTimeDelta = 500;
@@ -446,7 +446,7 @@ describe("stopwatch", function () {
                     }, testtime);
                 }, testtime);
             }, testtime);
-        });    
+        });
     });
 
     describe("toString()", function () {
