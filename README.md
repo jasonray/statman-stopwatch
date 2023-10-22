@@ -110,6 +110,8 @@ Create a new stopwatch, `stop()` it, and later `read()` it
  ```
 
 #### Delta
+There may be scenarios in which you need to add multiple timings together.  To help with this, you can initialize the stopwatch with a value that will be added to the readings.
+Note that most scenarios could also be achieved by suspending/resuming the stopwatch.
 Create a new stopwatch, `start()` it, and later `read()` it
 ``` javascript
     const Stopwatch = require('statman-stopwatch');
