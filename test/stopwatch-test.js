@@ -346,7 +346,7 @@ describe("stopwatch", function () {
         it.skip("state of resumed stopwatch", function () {
         });
         it("read resumed stopwatch returns total time", function (done) {
-            const testtime = 100;
+            const testtime = 250;
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             setTimeout(function () {
@@ -356,7 +356,7 @@ describe("stopwatch", function () {
                     setTimeout(function () {
                         const expectedDelta = testtime * 2;
                         const delta = stopwatch.read();
-                        verifyDelta(testtime, delta, defaultPrecision);
+                        verifyDelta(expectedDelta, delta, defaultPrecision);
                         done();
                     }, testtime);    
                 }, testtime);    
@@ -375,7 +375,7 @@ describe("stopwatch", function () {
                     setTimeout(function () {
                         const expectedDelta = testtime;
                         const delta = stopwatch.read();
-                        verifyDelta(testtime, delta, defaultPrecision);
+                        verifyDelta(expectedDelta, delta, defaultPrecision);
                         done();
                     }, testtime);    
                 }, testtime);    
