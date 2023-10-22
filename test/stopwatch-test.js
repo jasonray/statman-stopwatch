@@ -442,7 +442,7 @@ describe("stopwatch", function () {
         it("verify single state, valid", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
-            stopwatch._verifyState([stopwatch.STATES.RUNNING])
+            stopwatch._verifyState([stopwatch.STATES.RUNNING]);
         });
         it("verify multiple state, valid", function () {
             const stopwatch = new Stopwatch("sw");
@@ -463,7 +463,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([stopwatch.STATES.INIT])
+                    stopwatch._verifyState([stopwatch.STATES.INIT]);
                 },
                 Error);
         });
