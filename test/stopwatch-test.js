@@ -343,7 +343,12 @@ describe("stopwatch", function () {
         });
         it.skip("read 2x suspended stopwatch returns proper time", function () {
         });
-        it.skip("state of resumed stopwatch", function () {
+        it("state of resumed stopwatch", function () {
+            const stopwatch = new Stopwatch();
+            stopwatch.start();
+            stopwatch.suspend();
+            stopwatch.resume();
+            stopwatch.state().should.be.equal("running");
         });
         it("read resumed stopwatch returns total time", function (done) {
             const testtime = 250;
