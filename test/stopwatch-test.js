@@ -447,7 +447,7 @@ describe("stopwatch", function () {
         it("verify multiple state, valid", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
-            stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.RUNNING])
+            stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.RUNNING]);
         });
         it("verify empty list", function () {
             const stopwatch = new Stopwatch("sw");
