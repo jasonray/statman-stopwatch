@@ -398,7 +398,23 @@ describe("stopwatch", function () {
                 }, testtime);
             }, testtime);
         });
-    });
+        it("read re-started stopwatch returns segment time", function (done) {
+            const testtime = 250;
+            const stopwatch = new Stopwatch("sw");
+            stopwatch.start();
+            setTimeout(function () {
+                stopwatch.suspend();
+                setTimeout(function () {
+                    stopwatch.start();
+                    setTimeout(function () {
+                        const expectedDelta = testtime;
+                        const delta = stopwatch.read();
+                        verifyDelta(expectedDelta, delta, defaultPrecision);
+                        done();
+                    }, testtime);
+                }, testtime);
+            }, testtime);
+        });    });
 
     describe("toString()", function () {
         it("idle", function () {
