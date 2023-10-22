@@ -193,7 +193,7 @@ describe("stopwatch", function () {
         }, testtime);
     });
 
-    describe("start time delta", function() {        
+    describe("start time delta", function () {
         it("start at specific time delta and read (100ms)", function (done) {
             const initialStartTimeDelta = 500;
             const testtime = 100;
@@ -221,7 +221,7 @@ describe("stopwatch", function () {
                         stopwatch.setStartTimeDelta(initialStartTimeDelta);
                         done();
                     },
-                    Error);                
+                    Error);
                 done();
             }, testtime);
         });
@@ -249,7 +249,7 @@ describe("stopwatch", function () {
                 stopwatch.read().should.be.NaN();
                 done();
             }, testtime);
-        });        
+        });
     });
 
     it("read precision with 0", function (done) {
@@ -262,7 +262,7 @@ describe("stopwatch", function () {
             delta.should.match(/^\d{4}$/);
             done();
         }, testtime);
-    });    
+    });
 
     it("read precision with 1", function (done) {
         const testtime = 1000.123;
@@ -274,7 +274,7 @@ describe("stopwatch", function () {
             delta.should.match(/^\d{4}\.\d$/);
             done();
         }, testtime);
-    }); 
+    });
 
     it("read precision with 2", function (done) {
         const testtime = 1000.123;
@@ -286,7 +286,7 @@ describe("stopwatch", function () {
             delta.should.match(/^\d{4}\.\d{2}$/);
             done();
         }, testtime);
-    }); 
+    });
 
     it("read using time() precision with 2", function (done) {
         const testtime = 1000.123;
@@ -298,7 +298,7 @@ describe("stopwatch", function () {
             delta.should.match(/^\d{4}\.\d{2}$/);
             done();
         }, testtime);
-    }); 
+    });
 
     describe("suspend / resume", function () {
         it("unable to suspend a new stopwatch", function () {
@@ -339,7 +339,7 @@ describe("stopwatch", function () {
                 const delta = stopwatch.suspend();
                 verifyDelta(testtime, delta, defaultPrecision);
                 done();
-            }, testtime);    
+            }, testtime);
         });
         it("read suspended stopwatch returns proper time (start=>suspend)", function (done) {
             const testtime = 200;
@@ -351,9 +351,9 @@ describe("stopwatch", function () {
                     const delta = stopwatch.read();
                     verifyDelta(testtime, delta, defaultPrecision);
                     done();
-                }, testtime);    
-            }, testtime);    
-        });        
+                }, testtime);
+            }, testtime);
+        });
         it("read (return) 2x suspended stopwatch returns proper time", function (done) {
             const testtime = 200;
             const stopwatch = new Stopwatch("sw");
@@ -369,10 +369,10 @@ describe("stopwatch", function () {
                             const delta = stopwatch.read();
                             verifyDelta(expectedDelta, delta, defaultPrecision);
                             done();
-                        }, testtime);    
-                    }, testtime);    
-                }, testtime);    
-            }, testtime);    
+                        }, testtime);
+                    }, testtime);
+                }, testtime);
+            }, testtime);
         });
         it("state of resumed stopwatch", function () {
             const stopwatch = new Stopwatch();
@@ -394,9 +394,9 @@ describe("stopwatch", function () {
                         const delta = stopwatch.read();
                         verifyDelta(expectedDelta, delta, defaultPrecision);
                         done();
-                    }, testtime);    
-                }, testtime);    
-            }, testtime);      
+                    }, testtime);
+                }, testtime);
+            }, testtime);
         });
     });
 
@@ -426,19 +426,19 @@ describe("stopwatch", function () {
         it("verify single state, valid", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
-            stopwatch._verifyState([ stopwatch.STATES.RUNNING ])
+            stopwatch._verifyState([stopwatch.STATES.RUNNING])
         });
         it("verify multiple state, valid", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
-            stopwatch._verifyState([ stopwatch.STATES.INIT , stopwatch.STATES.RUNNING ])
+            stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.RUNNING])
         });
         it("verify empty list", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([  ])
+                    stopwatch._verifyState([])
                 },
                 Error);
         });
@@ -447,7 +447,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([ stopwatch.STATES.INIT ])
+                    stopwatch._verifyState([stopwatch.STATES.INIT])
                 },
                 Error);
         });
@@ -456,7 +456,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([ stopwatch.STATES.INIT, stopwatch.STATES.STOPPED ])
+                    stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.STOPPED])
                 },
                 Error);
         });
@@ -465,7 +465,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([ stopwatch.STATES.INIT ], "Can take x action unless in state y")
+                    stopwatch._verifyState([stopwatch.STATES.INIT], "Can take x action unless in state y")
                 },
                 Error);
         });
