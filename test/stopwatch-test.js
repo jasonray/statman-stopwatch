@@ -323,7 +323,13 @@ describe("stopwatch", function () {
             stopwatch.suspend()
             stopwatch.state().should.be.equal("stopped");
         });
-        it.skip("state of 2x suspended stopwatch", function () {
+        it("state of 2x suspended stopwatch", function () {
+            const stopwatch = new Stopwatch();
+            stopwatch.start();
+            stopwatch.suspend()
+            stopwatch.start();
+            stopwatch.suspend()
+            stopwatch.state().should.be.equal("stopped");
         });
         it.skip("read suspended stopwatch returns proper time", function () {
         });
