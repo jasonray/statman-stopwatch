@@ -442,19 +442,19 @@ describe("stopwatch", function () {
         it("verify single state, valid", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
-            stopwatch._verifyState([stopwatch.STATES.RUNNING])
+            stopwatch._verifyState([stopwatch.STATES.RUNNING]);
         });
         it("verify multiple state, valid", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
-            stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.RUNNING])
+            stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.RUNNING]);
         });
         it("verify empty list", function () {
             const stopwatch = new Stopwatch("sw");
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([])
+                    stopwatch._verifyState([]);
                 },
                 Error);
         });
@@ -463,7 +463,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([stopwatch.STATES.INIT])
+                    stopwatch._verifyState([stopwatch.STATES.INIT]);
                 },
                 Error);
         });
@@ -472,7 +472,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.STOPPED])
+                    stopwatch._verifyState([stopwatch.STATES.INIT, stopwatch.STATES.STOPPED]);
                 },
                 Error);
         });
@@ -481,7 +481,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([stopwatch.STATES.INIT], "Can take x action unless in state y")
+                    stopwatch._verifyState([stopwatch.STATES.INIT], "Can take x action unless in state y");
                 },
                 Error);
         });
