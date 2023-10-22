@@ -454,7 +454,7 @@ describe("stopwatch", function () {
             stopwatch.start();
             assert.throws(
                 function () {
-                    stopwatch._verifyState([])
+                    stopwatch._verifyState([]);
                 },
                 Error);
         });
