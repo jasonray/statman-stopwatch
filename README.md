@@ -47,6 +47,9 @@ const stopwatch = new statman.Stopwatch();
 ### stop, suspend
 -   `stop()` => stops the stopwatch, and returns the time elapsed in milliseconds
 
+### restart
+-   `restart()` => performs a stop() and start()
+
 ### split
 -   `split()` => temp stops the stopwatch, allow read() to return time based on when split occurs.  Use `unsplit()` to resume the stopwatch
 
