@@ -1,7 +1,7 @@
 title: statman-stopwatch
 description: simple high res stopwatch for node.js
 
-# google_analytics: [Your Google Analytics tracking ID]
+google_analytics: G-9EZ6F8520W
 
 remote_theme: pages-themes/leap-day@v0.2.0
 plugins:
