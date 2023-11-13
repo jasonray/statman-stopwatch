@@ -35,7 +35,7 @@ const stopwatch = new statman.Stopwatch();
 ### Constructor
 -   `Stopwatch()` => create instance of a stopwatch
 -   `Stopwatch(true)` => create instance of stopwatch, and have it autostart
--   `Stopwatch(name, autostart, delta) => create instance of stopwatch, with name, specify if to autostart, and supply an automatic delta (see setStartTimeDelta)
+-   `Stopwatch(name, autostart, delta)` => create instance of stopwatch, with name, specify if to autostart, and supply an automatic delta (see setStartTimeDelta)
 
 ### start
 -   `start()` => starts the stopwatch, let the timing begin!
