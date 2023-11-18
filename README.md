@@ -43,7 +43,8 @@ const stopwatch = new statman.Stopwatch();
 ### read
 -   `read(precision, units)` => reads the stopwatch to determine how much time has elapsed.  Note that the stopwatch continues to run.  Returns the time elapsed in milliseconds.
     -   If `precision` is provided, `read()` will round to the number of decimals places based on precision.  
-    -   By default, `read` returns in `ms`.  If `units` is specified to `s`, will return values in seconds.  
+    -   By default, `read` returns in `ms`.  If `units` is specified to `s`, will return values in seconds.
+    
 -   `time(precision)` => alias for `read()`
 
 ### stop, suspend
