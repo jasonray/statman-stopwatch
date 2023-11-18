@@ -6,6 +6,10 @@
 
 For example, you may want to determine how long certain potentially expensive activities take in your code (such as calling to an external web services or fetching a dataset from a database).  Few lines of code will let you capture that info.  There are much more elegant solutions - this is a simple roll-your-own approach.
 
+New Features:
+{: .label .label-purple }
+* 2.17.1: specify units when reading stopwatch
+
 ## Install it!
 ### Option 1: access directly (recommended)
 Install using npm:
