@@ -35,7 +35,7 @@ const stopwatch = new statman.Stopwatch();
 ### Constructor
 -   `Stopwatch()` => create instance of a stopwatch
 -   `Stopwatch(true)` => create instance of stopwatch, and have it autostart
--   `Stopwatch(name, autostart, delta) => create instance of stopwatch, with name, specify if to autostart, and supply an automatic delta (see setStartTimeDelta)
+-   `Stopwatch(name, autostart, delta)` => create instance of stopwatch, with name, specify if to autostart, and supply an automatic delta (see setStartTimeDelta)
 
 ### start
 -   `start()` => starts the stopwatch, let the timing begin!
@@ -127,7 +127,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
     // delta will be 5500 (the initial 5000ms set in setStartTimeDelta plus the elapsed 500ms)
  ```
 
- #### Suspend/Resume
+#### Suspend/Resume
 There are times where you may want to exclude certain events from the stopwatch, so you can `suspend` (pause) the stopwatch, then `resume` after the excluded event is complete.
 Create a new stopwatch, `start()` it, and later `read()` it
 ``` javascript
