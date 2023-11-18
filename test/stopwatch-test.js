@@ -339,9 +339,9 @@ describe("stopwatch", function () {
         const stopwatch = new Stopwatch();
         stopwatch.start();
         setTimeout(function () {
-            const delta = stopwatch.read('s');
-            verifyDelta(timeMs, stopwatch.read(1,'ms'), defaultPrecision);
-            verifyDelta(timeS, stopwatch.read(1,'s'), defaultPrecision);
+            const delta = stopwatch.read("s");
+            verifyDelta(timeMs, stopwatch.read(1,"ms"), defaultPrecision);
+            verifyDelta(timeS, stopwatch.read(1,"s"), defaultPrecision);
             done();
         }, timeMs);
     });
