@@ -332,6 +332,21 @@ describe("stopwatch", function () {
         }, testtime);
     });
 
+    it("read with units", function (done) {
+        const timeMs = 2000;
+        const timeS = 2;
+
+        const stopwatch = new Stopwatch();
+        stopwatch.start();
+        setTimeout(function () {
+            const delta = stopwatch.read("s");
+            verifyDelta(timeMs, stopwatch.read(1,"ms"), defaultPrecision);
+            verifyDelta(timeS, stopwatch.read(1,"s"), defaultPrecision);
+            done();
+        }, timeMs);
+    });
+
+
     describe("suspend / resume", function () {
         it("unable to suspend a new stopwatch", function () {
             const stopwatch = new Stopwatch();
