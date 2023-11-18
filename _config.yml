@@ -5,7 +5,8 @@ google_analytics: G-HY7FG0JHTV
 
 remote_theme: pages-themes/leap-day@v0.2.0
 plugins:
-- jekyll-remote-theme
+  - jekyll-remote-theme
+  - jekyll-sitemap
 
 show_downloads: false
 
