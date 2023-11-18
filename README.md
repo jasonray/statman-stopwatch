@@ -127,7 +127,7 @@ Create a new stopwatch, `start()` it, and later `read()` it
     // delta will be 5500 (the initial 5000ms set in setStartTimeDelta plus the elapsed 500ms)
  ```
 
- #### Suspend/Resume
+#### Suspend/Resume
 There are times where you may want to exclude certain events from the stopwatch, so you can `suspend` (pause) the stopwatch, then `resume` after the excluded event is complete.
 Create a new stopwatch, `start()` it, and later `read()` it
 ``` javascript
