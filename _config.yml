@@ -3,12 +3,18 @@ description: simple high res stopwatch for node.js
 
 google_analytics: G-HY7FG0JHTV
 
-remote_theme: pages-themes/leap-day@v0.2.0
+# https://just-the-docs.github.io/just-the-docs/
+# https://github.com/pmarsceill/jtd-remote/blob/master/_config.yml
+remote_theme: just-the-docs/just-the-docs
+
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
 
-show_downloads: false
+# show_downloads: false
+
+color_scheme: "dark"
+search_enabled: false
 
 # github:
 #   zip_url: http://example.com/download.zip
