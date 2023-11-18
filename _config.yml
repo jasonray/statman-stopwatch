@@ -13,7 +13,7 @@ plugins:
 
 # show_downloads: false
 
-color_scheme: light
+color_scheme: "light"
 search_enabled: false
 
 # github:
