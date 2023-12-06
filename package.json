@@ -3,6 +3,7 @@
   "version": "2.17.2",
   "description": "statman-stopwatch is one of the metrics from the statman library. It is a simple high res stopwatch for node.js. Stopwatch is useful for determining the amount of time it takes to perform an activity.",
   "main": "lib/Stopwatch.js",
+  "types": "Stopwatch.d.ts",
   "scripts": {
     "test": "mocha test/"
   },
